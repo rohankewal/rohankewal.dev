@@ -1,13 +1,31 @@
 ---
+import HeaderLink from "./HeaderLink.astro";
+
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+<footer class="text-black">
+	<nav class="pb-2">
+		<HeaderLink class="footer-link" href="/">Home</HeaderLink>
+		<HeaderLink class="footer-link" href="/blog">Blog</HeaderLink>
+		<HeaderLink class="footer-link" href="/about">About</HeaderLink>
+		<HeaderLink class="footer-link" href="https://twitter.com/rohankewal" target="_blank">Twitter</HeaderLink>
+		<HeaderLink class="footer-link" href="https://github.com/rohankewal" target="_blank">GitHub</HeaderLink>
+	</nav>
+	&copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.
 </footer>
 <style>
 	footer {
 		padding: 25px;
 		text-align: center;
 	}
+  .footer-link {
+    color: #000;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  .footer-link.active {
+    font-weight: normal;
+    text-decoration: none;
+  }
 </style>

@@ -1,18 +1,20 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
+<header class='flex flex-wrap justify-between items-center px-4 py-2'>
+	<h2 class='font-bold text-2xl mr-6'>Rohan Kewalramani</h2>
+	<nav class='flex-grow flex flex-wrap justify-end space-x-4'>
+		<HeaderLink href='/'>Home</HeaderLink>
+		<HeaderLink href='/blog'>Blog</HeaderLink>
+		<HeaderLink href='/about'>About</HeaderLink>
+		<HeaderLink href='https://twitter.com/rohankewal' target='_blank'>
+			Twitter
+		</HeaderLink>
+		<HeaderLink href='https://github.com/rohankewal' target='_blank'>
+			GitHub
+		</HeaderLink>
 	</nav>
 </header>
 <style>
