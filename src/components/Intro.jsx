@@ -10,12 +10,13 @@ export default function Intro() {
 			<p className='text-base text-stone-600 md:text-xl mb-3 font-medium'>
 				Full-Stack Web Developer
 			</p>
-			<p className='text-md max-w-xl mb-6 font-bold'>
-				I am a fullstack web developer. I work with WordPress, Shopify and
-				ReactJS. In my spare time, I love to play video games and work out.
+			<p className='text-stone-700 text-md max-w-xl mb-6 font-bold'>
+				I am a fullstack web developer from New Jersey. I work with WordPress,
+				Shopify and ReactJS. In my spare time, I love to play video games and
+				work out.
 			</p>
 			<br />
-			<p className='text-md max-w-xl mb-6 font-bold'>
+			<p className='text-stone-700 text-md max-w-xl mb-6 font-bold'>
 				I will be documenting my journey as a developer and all other business
 				ventures on this blog and share thm with you. Here's to the future!
 			</p>
