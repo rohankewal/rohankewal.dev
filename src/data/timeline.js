@@ -1,13 +1,13 @@
 export default [
 	{
-		year: 'Today',
+		year: '2022-Today',
 		title: 'Web Developer / Digital Operations Specialist',
 		duration: 'Current',
 		details:
 			'Working as a full-stack developer specializing in Shopify, WordPress and Click Funnels. I also work as a digital operations specialist helping troubleshoot any issues my coworkers may have with their computers and software and as well as work tech support for any live events and I can help anywhere from 50 to over 100 people in just a few hours to help resolve their technical issues.',
 	},
 	{
-		year: '2021',
+		year: '2021-2022',
 		title: 'Junior Web Developer',
 		duration: '1 Year',
 		details:
