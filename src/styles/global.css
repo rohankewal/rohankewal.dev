@@ -4,10 +4,10 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 body {
-  font-family: Verdana, sans-serif;
-  margin: auto;
-  padding: 20px;
-  color: #444;
+	font-family: Verdana, sans-serif;
+	margin: auto;
+	padding: 20px;
+	color: #444;
 }
 h1,
 h2,
@@ -17,45 +17,177 @@ h5,
 h6,
 strong,
 b {
-  color: #222;
+	color: #222;
 }
 a {
-  color: #3273dc;
+	color: #3273dc;
 }
 nav a {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 textarea {
-  width: 100%;
-  font-size: 16px;
+	width: 100%;
+	font-size: 16px;
 }
 input {
-  font-size: 16px;
+	font-size: 16px;
 }
 content {
-  line-height: 1.6;
+	line-height: 1.6;
 }
 table {
-  width: 100%;
+	width: 100%;
 }
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 code {
-  padding: 2px 5px;
-  background-color: #f2f2f2;
+	padding: 2px 5px;
+	background-color: #f2f2f2;
 }
 pre {
-  padding: 1rem;
+	padding: 1rem;
 }
 pre > code {
-  all: unset;
+	all: unset;
 }
 blockquote {
-  border: 1px solid #999;
-  color: #222;
-  padding: 2px 0px 2px 20px;
-  margin: 0px;
-  font-style: italic;
+	border: 1px solid #999;
+	color: #222;
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
+}
+
+h1 {
+	font-family: var(--font-family-serif);
+	font-size: 3em;
+}
+
+h2 {
+	margin: 1.6em 0 0 0;
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.4em;
+}
+
+h5 {
+	font-size: 1.3em;
+}
+
+h6 {
+	font-size: 1.2em;
+}
+
+p,
+ul,
+ol {
+	font-size: 1.3rem;
+	line-height: 1.75em;
+	margin: 1.2em 0;
+}
+
+ol,
+ul {
+	padding-left: 2rem;
+	-webkit-padding-start: 5%;
+	-webkit-padding-end: 5%;
+}
+
+li {
+	margin: 1rem 0;
+}
+
+li p {
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+p a {
+	text-decoration: none;
+	box-shadow: inset 0 -0.12em 0 var(--primary-color);
+	-webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+p a:hover {
+	box-shadow: inset 0 -1.5em 0 var(--primary-color);
+	color: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+code {
+	font-family: 'SF Mono', menlo, inconsolata, monospace;
+	font-size: calc(1em - 2px);
+	color: #555;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+pre {
+	border-radius: 8px !important;
+	margin: 1.2em 0 !important;
+	padding: 1.2em;
+}
+
+pre code {
+	padding: 0;
+}
+
+blockquote {
+	border-left: 4px solid #cccccc;
+	font-size: 1.4em;
+	font-style: italic;
+	margin: 2rem 0;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+blockquote p {
+	padding-bottom: 6px;
+}
+
+blockquote footer {
+	font-size: 1.1rem;
+	text-align: right;
+}
+
+figure {
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	margin: 0 0 3em 0;
+}
+
+table {
+	border-collapse: collapse;
+	font-family: var(--font-family-sans);
+	font-size: 1.125em;
+	margin: 2em 0;
+}
+
+th {
+	border-bottom: 2px solid #cccccc;
+	padding: 0.4em 0.8em;
+}
+
+td {
+	padding: 0.4em 0.8em;
 }
