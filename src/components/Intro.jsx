@@ -3,7 +3,7 @@ import React from 'react';
 export default function Intro() {
 	return (
 		<div className='flex items-center justify-center flex-col text-center pt-20 pb-6'>
-			<img src='/public/rohan.png' className='rounded-full w-36 h-36' />
+			<img src='/rohan.png' className='rounded-full w-36 h-36' />
 			<h1 className='pt-4 text-4xl md:text-6xl mb-1 md:mb-3 font-bold'>
 				I'm Rohan!
 			</h1>
