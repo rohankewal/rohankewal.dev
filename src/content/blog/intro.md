@@ -1,8 +1,8 @@
 ---
-title: 'Hi There!'
-description: 'Hey, welcome to my blog!'
-pubDate: 'March 24 2023'
-heroImage: '/intro.jpeg'
+title: "Hi There!"
+description: "Hey, welcome to my blog!"
+pubDate: "April 11 2023"
+heroImage: "/intro.jpeg"
 ---
 
 # Welcome to my new blog!
