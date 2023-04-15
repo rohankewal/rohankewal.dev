@@ -1,5 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 const today = new Date();
 ---
@@ -9,8 +10,12 @@ const today = new Date();
 		<HeaderLink class="footer-link" href="/">Home</HeaderLink>
 		<HeaderLink class="footer-link" href="/blog">Blog</HeaderLink>
 		<HeaderLink class="footer-link" href="/about">About</HeaderLink>
-		<HeaderLink class="footer-link" href="https://twitter.com/rohankewal" target="_blank">Twitter</HeaderLink>
-		<HeaderLink class="footer-link" href="https://github.com/rohankewal" target="_blank">GitHub</HeaderLink>
+		<HeaderLink class="footer-link text-blue-500 text-2xl" href="https://twitter.com/rohankewal" target="_blank">
+      <FaTwitter />
+    </HeaderLink>
+		<HeaderLink class="footer-link text-2xl" href="https://github.com/rohankewal" target="_blank">
+      <FaGithub />
+    </HeaderLink>
 	</nav>
 	&copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.
 </footer>
@@ -20,7 +25,6 @@ const today = new Date();
 		text-align: center;
 	}
   .footer-link {
-    color: #000;
     font-weight: normal;
     text-decoration: none;
   }
