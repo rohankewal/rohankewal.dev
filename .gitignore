@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# posts
+src/content/blog/
+
 # dependencies
 node_modules/
 
