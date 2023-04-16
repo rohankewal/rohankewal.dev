@@ -5,6 +5,7 @@ dist/
 
 # posts
 src/content/blog/
+public/
 
 # dependencies
 node_modules/
