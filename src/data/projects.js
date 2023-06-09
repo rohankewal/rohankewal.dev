@@ -12,9 +12,9 @@ export default [
     link: "https://github.com/rohankewal/budget-tracker",
   },
   {
-    title: "Stock Tracker",
+    title: "Task Master",
     imgUrl: "",
-    stack: ["TailwindCSS", "React", "CSS"],
+    stack: ["ChakraUI", "React", "JavaScript"],
     link: "https://github.com/rohankewal/stock-tracker",
   },
 ];

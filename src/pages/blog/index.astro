@@ -26,7 +26,9 @@ const { title, description, pubDate, heroImage } = Astro.props;
 				<div class='bg-white text-black min-h-screen font-inter'>
 					<div class='max-w-5xl w-11/12 mx-auto'>
 						<Title>Posts</Title>
-						<ul class='justify-center grid grid-cols-3 gap-4 sm:flex-row grid-cols-2 md:flex-row items-center'>
+						<ul
+							class='justify-center grid grid-cols-3 gap-4 sm:flex-col md:flex-row items-center'
+						>
 							{
 								posts.map((post) => (
 									<a href={`/blog/${post.slug}`}>
