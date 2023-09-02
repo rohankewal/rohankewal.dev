@@ -12,9 +12,9 @@ export default [
     link: "https://github.com/rohankewal/budget-tracker",
   },
   {
-    title: "Task Master",
-    imgUrl: "",
-    stack: ["ChakraUI", "React", "JavaScript"],
-    link: "https://github.com/rohankewal/stock-tracker",
+    title: "Pomodoro Timer",
+    imgUrl: "/pomodoro.png",
+    stack: ["TailwindCSS", "React", "JavaScript"],
+    link: "https://github.com/rohankewal/pomodoro",
   },
 ];
