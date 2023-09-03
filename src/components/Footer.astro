@@ -1,28 +1,35 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import { FaGithubAlt, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const today = new Date();
 ---
 
 <footer class="text-black">
-	<nav class="pb-2">
-		<HeaderLink class="footer-link" href="/">Home</HeaderLink>
-		<HeaderLink class="footer-link" href="/blog">Blog</HeaderLink>
-		<HeaderLink class="footer-link" href="/about">About</HeaderLink>
-		<HeaderLink class="footer-link" href="https://twitter.com/rohankewal" target="_blank">
-      Twitter
-    </HeaderLink>
-		<HeaderLink class="footer-link" href="https://github.com/rohankewal" target="_blank">
-      GitHub
-    </HeaderLink>
-	</nav>
-	&copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.
+  <nav class="pb-2 flex-grow flex flex-wrap justify-center space-x-4">
+    <HeaderLink class="footer-link" href="/">Home</HeaderLink>
+    <HeaderLink class="footer-link" href="/blog">Blog</HeaderLink>
+    <HeaderLink class="footer-link" href="/about">About</HeaderLink>
+    <a
+      href="https://www.youtube.com/channel/UCRtXR1SLPBti1p5bNAioIuw"
+      target="_blank"
+    >
+      <FaYoutube className="text-xl text-red-600" />
+    </a>
+    <a href="https://twitter.com/rohankewal" target="_blank">
+      <FaTwitter className="text-xl text-blue-600" />
+    </a>
+    <a href="https://github.com/rohankewal" target="_blank">
+      <FaGithubAlt className="text-xl text-black" />
+    </a>
+  </nav>
+  &copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.
 </footer>
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
   .footer-link {
     font-weight: normal;
     text-decoration: none;
