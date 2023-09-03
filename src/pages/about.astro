@@ -1,53 +1,74 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Title from '../components/Title';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Title from "../components/Title";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<article
-				class='px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white'
-			>
-				<Title>About Me</Title>
-				<p>
-					Ever since I was around 5 years old, I have always been fasinated by
-					computers and all things technology. Growing up I would always talk to
-					my cousins and uncles who worked in the technology field and always
-					ask them questions about how things worked and how to get into the
-					field and how to learn to code or become a developer.
-				</p>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <article
+        class="px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white"
+      >
+        <Title>About Me</Title>
+        <p>
+          👋 Hello! I'm Rohan Kewalramani, a passionate and versatile Full Stack
+          Web Developer with a deep appreciation for innovative technologies and
+          a proven track record in delivering exceptional web solutions.
+        </p>
 
-				<p>
-					In 4 years I got a degree in computer science and then right after
-					graduating I got a job working as a full-time junior web developer
-					working with JavaScript and also the Kentico CMS.
-				</p>
+        <p>
+          💼 In my role as a Digital Operations Assistant at Streamline
+          Publishing, I've been at the forefront of dynamic projects that merge
+          art and technology. My expertise encompasses a wide array of
+          technologies, including .NET, C#, ASP.Net, HTML5, MySQL, JavaScript,
+          and more. You can explore my coding journey on my GitHub profile:
+          <a href="https://www.github.com/rohankewal" target="_blank"
+            >https://www.github.com/rohankewal</a
+          >.
+        </p>
 
-				<p>
-					Over the years, I have learnt a lot as a developer and have been able
-					to add some really amazing skills and tools into my toolbox of being a
-					developer. I have worked on Shopify sites, WordPress sites and also
-					ClickFunnels sites as well. I have managed projects and also
-					implmented new and very helpful features to exisiting projects at my
-					job and have helped save my co-workers hundreds of hours of tasks with
-					these features and have helped improve site traffic on sites as well.
-				</p>
+        <p>
+          🚀 From implementing robust business-wide push notification systems to
+          offering top-tier customer support for live events, I've consistently
+          delivered results that exceed expectations. I've fine-tuned magazine
+          subscription automation systems, resolved intricate Google Product
+          errors, and played a pivotal role in a successful customer support
+          system implementation. I thrive in fast-paced environments and welcome
+          new challenges with an optimistic outlook.
+        </p>
 
-				<p>
-					Currently, I am working as a full stack web developer specializing in
-					Shopify, WordPress and Click Funnels websites.
-				</p>
-			</article>
-		</main>
-		<Footer />
-	</body>
+        <p>
+          🌐 My background extends to roles at Citro Digital and Vaswani Inc.,
+          where I've honed my skills in backend development, communication, and
+          collaboration within cross-functional teams. My dedication to
+          organization, attention to detail, and unwavering responsiveness have
+          consistently set me apart.
+        </p>
+
+        <p>
+          🎯 Beyond my technical prowess, I'm known for my creative
+          problem-solving abilities and a wellspring of innovative ideas. I
+          embrace opportunities to take initiative, fostering a collaborative
+          environment that drives positive change.
+        </p>
+
+        <p>
+          🌟 I'm excited to connect with fellow professionals, share insights,
+          and explore potential collaborations. If you're interested in
+          leveraging cutting-edge technology to create exceptional web
+          experiences, let's connect! You can reach out to me at
+          rkewalramani4@gmail.com or (732)-423-0860.
+        </p>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
