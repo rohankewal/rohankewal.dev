@@ -4,11 +4,11 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import { FaGithubAlt, FaTwitter, FaYoutube, FaMoon, FaSun } from 'react-icons/fa';
 
-let isDarkMode = false;
+const [isDarkMode, setIsDarkMode] = useState(false);
 
 function toggleDarkMode() {
-  isDarkMode = !isDarkMode;
-  if (isDarkMode) {
+  setIsDarkMode(prev => !prev);
+  if (!isDarkMode) {
     document.body.classList.add('dark');
   } else {
     document.body.classList.remove('dark');
@@ -23,8 +23,8 @@ function toggleDarkMode() {
 		<HeaderLink href='/blog'>Blog</HeaderLink>
 		<HeaderLink href='/about'>About</HeaderLink>
     {isDarkMode 
-    ? <FaSun onClick={toggleDarkMode} className="text-yellow-400 text-2xl cursor-pointer" />
-    : <FaMoon onClick={toggleDarkMode} className="text-purple-500 text-2xl cursor-pointer" />}
+    ? <FaSun onClick={toggleDarkMode} className="text-yellow-400 cursor-pointer" />
+    : <FaMoon onClick={toggleDarkMode} className="text-gray-500 cursor-pointer" />}
 		<a
 			href='https://www.youtube.com/channel/UCRtXR1SLPBti1p5bNAioIuw'
 			target='_blank'
