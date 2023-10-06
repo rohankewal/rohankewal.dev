@@ -1,0 +1,91 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Title from "../components/Title";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <article
+        class="px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white"
+      >
+        <Title>My Setup</Title>
+        <h2>Dev Environment</h2>
+        <ul>
+          <li>Code Editor: <a href="https://neovim.io/">Neovim</a></li>
+          <li>Shell: <a href="https://fishshell.com/">Fish</a></li>
+          <li>
+            Node Package Manager: <a href="https://www.npmjs.com/">NPM</a>
+          </li>
+          <li>
+            Terminal: <a href="https://github.com/alacritty/alacritty"
+              >Alacritty</a
+            >
+          </li>
+          <li>
+            Colorscheme: <a href="https://github.com/catppuccin/catppuccin"
+              >Catppuccin</a
+            >
+          </li>
+          <li>
+            Font: <a href="https://github.com/epk/SF-Mono-Nerd-Font"
+              >SFMono Nerd Font</a
+            >
+          </li>
+        </ul>
+
+        <h2>Main Apps</h2>
+        <ul>
+          <li>Browser: <a href="https://arc.net">Arc</a></li>
+          <li>Note Taking: <a href="https://www.notion.so/">Notion</a></li>
+          <li>
+            Password Manager: <a href="https://www.heylogin.com/">HeyLogin</a>
+          </li>
+          <li>App Launcher: <a href="https://www.raycast.com/">Raycast</a></li>
+          <li>
+            Music: <a
+              href="https://open.spotify.com/__noul__?pfhp=2c2ccb58-8a92-4713-a1c0-8b43b3090b49"
+              >Spotify</a
+            >
+          </li>
+        </ul>
+
+        <h2>Hardware</h2>
+        <ul>
+          <li>
+            Computer: <a href="https://www.apple.com/mac-studio/"
+              >Apple Mac Studio(2022, M1 Max Chip, 32GB RAM)</a
+            >
+          </li>
+          <li>
+            Monitor: <a
+              href="https://www.amazon.com/LG-UltraWide-Computer-34WQ73A-B-Compatibility/dp/B0B924GWLJ/ref=sr_1_8?crid=3FUVB6PVI6QK1&keywords=34%2Binch%2Bcurved%2B4k%2Bmonitor&qid=1696612716&sprefix=34inch%2Bcurved%2B4k%2Bmonitor%2Caps%2C77&sr=8-8&th=1"
+              >34" LG Curved 4K Monitor</a
+            >
+          </li>
+          <li>
+            Keyboard: <a
+              href="https://www.keychron.com/products/keychron-k2-wireless-mechanical-keyboard?variant=31063869718617"
+              >Keychron K2</a
+            >
+          </li>
+          <li>Mouse: Logitech MX Master 2</li>
+          <li>
+            Earbuds: <a href="https://www.apple.com/airpods-pro/"
+              >Air Pods Pro 2</a
+            >
+          </li>
+        </ul>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
