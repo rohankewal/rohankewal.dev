@@ -17,4 +17,9 @@ export default [
     stack: ["TailwindCSS", "React", "JavaScript"],
     link: "https://github.com/rohankewal/pomodoro",
   },
+  {
+    title: "Shipment Tracking Dashboard",
+    stack: ["BootStrap", "React", "TypeScript"],
+    link: "https://github.com/rohankewal"
+  }
 ];
