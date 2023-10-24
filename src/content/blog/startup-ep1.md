@@ -37,4 +37,4 @@ As this series unfolds, I promise transparency. You'll witness every triumph, ev
 
 Thank you for being a part of this journey. Stay tuned for next week's update, where I'll be diving into the intricacies of back-end development and the challenges that come with it. Until then, keep shipping and keep tracking!
 
-Follow me here:
+That's all for now folks, thanks for reading? viewing?  Anyway, catch you guys next week with another update/findings on this start-up journey!! 😎
