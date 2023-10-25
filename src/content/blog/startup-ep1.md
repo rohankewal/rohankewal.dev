@@ -2,7 +2,7 @@
 title: My New/First Startup - Part 1
 description: The first post about my new SASS service startup
 heroImage: /ShipTrack.png
-pubDate: 10-27-2023
+pubDate: 10-24-2023
 ---
 
 Hello world! 🚀
@@ -37,4 +37,4 @@ As this series unfolds, I promise transparency. You'll witness every triumph, ev
 
 Thank you for being a part of this journey. Stay tuned for next week's update, where I'll be diving into the intricacies of back-end development and the challenges that come with it. Until then, keep shipping and keep tracking!
 
-That's all for now folks, thanks for reading? viewing?  Anyway, catch you guys next week with another update/findings on this start-up journey!! 😎
+That's all for now folks, thanks for reading? viewing? Anyway, catch you guys next week with another update/findings on this start-up journey!! 😎
