@@ -8,13 +8,13 @@ import Title from "../../components/Title";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 
 const { title, description, pubDate, heroImage } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -26,37 +26,34 @@ const { title, description, pubDate, heroImage } = Astro.props;
         <div class="bg-white text-black min-h-screen font-inter">
           <div class="max-w-5xl w-11/12 mx-auto">
             <Title>Posts</Title>
-            <ul
-              class="justify-center grid grid-cols-3 gap-4 sm:flex-col md:flex-row items-center"
-            >
-              {
-                posts.map((post) => (
-                  <a
-                    href={`/blog/${post.slug}`}
-                    class="block group hover:bg-gray-100 p-4 rounded-md transition duration-200"
-                  >
-                    <li class="flex flex-col items-center justify-center border-2 rounded-md border-gray-300 hover:border-gray-400 transition duration-200">
-                      <div class="relative w-full h-56 md:h-64 lg:h-80 overflow-hidden rounded-md">
-                        <img
-                          class="object-cover w-full h-full"
-                          src={post.data.heroImage}
-                          alt={post.data.title}
-                        />
-                      </div>
-                      <h2 class="mt-4 text-xl md:text-2xl font-bold text-gray-700 text-center group-hover:text-gray-800">
-                        {post.data.title}
+          </div>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {
+              posts.map((post) => (
+                <div class="max-w-md mx-auto mt-10">
+                  <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <a href={"/blog/" + post.slug}>
+                      <img
+                        src={post.data.heroImage}
+                        alt="Article Image"
+                        class="w-full h-48 object-cover hover:opacity-75 transition duration-300 ease-in-out"
+                      />
+                    </a>
+                    <div class="p-6">
+                      <h2 class="text-2xl font-semibold mb-2">
+                        <a href={"/blog/" + post.slug} class="text-black">
+                          {" "}
+                          {post.data.title}{" "}
+                        </a>
                       </h2>
-                      <div class="mt-2 text-gray-500">
+                      <p class="text-gray-600 text-sm mb-4">
                         <FormattedDate date={post.data.pubDate} />
-                      </div>
-                      <p class="mt-2 text-base md:text-lg text-gray-600 text-center">
-                        {post.data.description}
                       </p>
-                    </li>
-                  </a>
-                ))
-              }
-            </ul>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </section>
