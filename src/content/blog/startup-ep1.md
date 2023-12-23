@@ -1,7 +1,7 @@
 ---
-title: My New/First Startup - Part 1
+title: ShipTrack - Part 1
 description: The first post about my new SASS service startup
-heroImage: /ShipTrack.png
+heroImage: /startup-ep1.png
 pubDate: 10-24-2023
 ---
 
