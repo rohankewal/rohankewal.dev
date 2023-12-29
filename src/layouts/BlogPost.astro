@@ -35,8 +35,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				class='px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white'
 			>
 				{heroImage && <img width={720} height={360} src={heroImage} alt='' />}
-				<h1 class='title'>{title}</h1>
-				<FormattedDate date={pubDate} />
+        <!-- BUG: font-size will not change through tailwindCSS -->
+				<h1 class='title text-3xl font-bold'>{title}</h1>
+				<p class="text-gray-400">Posted On: <FormattedDate date={pubDate} /></p>
 				{
 					updatedDate && (
 						<div class='last-updated-on'>
