@@ -2,14 +2,16 @@
 import HeaderLink from "./HeaderLink.astro";
 import YoutubeIcon from "./icons/YoutubeIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
+import TwitchIcon from "./icons/TwitchIcon.astro"
 import TwitterIcon from "./icons/TwitterIcon.astro";
+import MastedonIcon from "./icons/MastedonIcon.astro"
 
 const today = new Date();
 ---
 
 <footer class="text-black">
   <nav class="pb-2 flex-grow flex flex-wrap justify-center space-x-4">
-    <HeaderLink class="footer-link" href="/">Home</HeaderLink>
+    <HeaderLink class="footer-link font-extrabold text-xl" href="/">Rohan Kewalramani</HeaderLink>
     <HeaderLink class="footer-link" href="/blog">Blog</HeaderLink>
     <HeaderLink class="footer-link" href="/about">About</HeaderLink>
     <HeaderLink class="footer-link" href="/setup">Setup</HeaderLink>
@@ -21,6 +23,12 @@ const today = new Date();
     </HeaderLink>
     <HeaderLink href="https://twitter.com/rohankewal" target="_blank">
       <TwitterIcon class="w-6" />
+    </HeaderLink>
+    <HeaderLink href="https://twitch.tv/rohankewal" target="_blank">
+      <TwitchIcon class="w-6" />
+    </HeaderLink>
+    <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank">
+      <MastedonIcon class="w-6" />
     </HeaderLink>
     <HeaderLink href="https://github.com/rohankewal" target="_blank">
       <GithubIcon class="w-6" />
