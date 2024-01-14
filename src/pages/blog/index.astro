@@ -7,11 +7,13 @@ import Header from "../../components/Header.astro";
 import Title from "../../components/Title";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
+const { title, description, pubDate, heroImage, draft } = Astro.props;
 
-const { title, description, pubDate, heroImage } = Astro.props;
+const allPosts = await getCollection("blog");
+console.log(allPosts[0]); // Inspect the structure of the first post
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.draft)
+  .sort(({ data: a }, { data: b }) => b.pubDate.getTime() - a.pubDate.getTime());
 ---
 
 <!doctype html>

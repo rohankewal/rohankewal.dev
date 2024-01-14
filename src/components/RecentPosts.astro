@@ -4,10 +4,13 @@ import React from 'react';
 import FormattedDate from "./FormattedDate.astro";
 import Title from './Title';
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
-const recentPosts = posts.slice(0, 3);
+const allPosts = await getCollection("blog");
+console.log(allPosts[0]); // Inspect the structure of the first post
+const posts = allPosts 
+  .filter((post) => !post.draft)
+  .sort(({ data: a }, { data: b }) => b.pubDate.getTime() - a.pubDate.getTime());
+
+const recentPosts = posts.slice(0,3);
 ---
 
 <div class="max-w-5xl w-11/12 mx-auto">

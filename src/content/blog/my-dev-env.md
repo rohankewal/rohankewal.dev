@@ -3,7 +3,6 @@ title: My Dev Setup
 description: A full preview/walkthrough of my development environment for the new year
 heroImage: /dev-env.png
 pubDate: 01-01-2024
-draft: true
 ---
 
 Hello fellow developers, start-uper's and tech enthusiasts!
