@@ -1,4 +1,10 @@
 export default [
+  {
+    year: '2024',
+    title: 'Freelance WordPress Web Developer',
+    duration: 'Current(As Needed Basis)',
+    details: 'Working on a as needed basis by GP Automate utilizing WordPress, Elementor and JavaScript for custom scripts.',
+  },
 	{
 		year: '2022-Today',
 		title: 'Web Developer / Digital Operations Specialist',
