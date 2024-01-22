@@ -3,7 +3,7 @@ export default [
     year: '2024',
     title: 'Freelance WordPress Web Developer',
     duration: 'Current(As Needed Basis)',
-    details: 'Working on a as needed basis by GP Automate utilizing WordPress, Elementor and JavaScript for custom scripts.',
+    details: 'While working as a web developer at Streamline full-time, I am now also working as a freelance web developer mainly with WordPress for GP Automate who are based out of London, UK and they build software for medical offices to make reporting and office tasks for doctors much easier and quicker than ever before.',
   },
 	{
 		year: '2022-Today',
