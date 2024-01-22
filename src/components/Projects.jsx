@@ -5,19 +5,18 @@ import Title from "./Title";
 
 export default function Portfolio() {
   return (
-    <div class="max-w-5xl w-11/12 mx-auto">
+    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <Title>Projects</Title>
-      <div className="flex flex-col md:flex-row items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {portfolio.map((project) => (
-            <PortfolioItem
-              imgUrl={project.imgUrl}
-              title={project.title}
-              stack={project.stack}
-              link={project.link}
-            />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {portfolio.map((project) => (
+          <PortfolioItem
+            key={project.title}
+            imgUrl={project.imgUrl}
+            title={project.title}
+            stack={project.stack}
+            link={project.link}
+          />
+        ))}
       </div>
     </div>
   );

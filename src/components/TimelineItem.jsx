@@ -1,21 +1,19 @@
 import React from 'react';
 
 export default function TimelineItem({ year, title, duration, details }) {
-	return (
-		<ol className='flex flex-col text-black md:flex-row relative border-l border-stone-200'>
-			<li className='mb-10 ml-4'>
-				<div className='absolute w-3 h-3 bg-stone-300 rounded-full mt-1.5 -left-1.5 border border-white' />
-				<p className='flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm'>
-					<span className='inline-block px-2 py-1 font-semibold text-stone-100 bg-black rounded-md'>
-						{year}
-					</span>
-					<h3 className='text-lg font-semibold text-stone-600'>{title}</h3>
-					<div className='my-1 text-sm font-normal leading-none text-stone-600'>
-						{duration}
-					</div>
-				</p>
-				<p className='my-2 text-base font-normal text-stone-600'>{details}</p>
-			</li>
-		</ol>
-	);
+  return (
+    <li className="mb-8 ml-4 relative">
+      <div className="absolute w-4 h-4 bg-stone-900 rounded-full left-[-10px] top-[6px] border-2 border-white dark:border-gray-800" />
+      <div className="border-l border-stone-200 pl-8 pb-4">
+        <div className="flex items-center gap-2 mb-2 text-sm md:text-base">
+          <span className="inline-block px-3 py-1 font-semibold text-white bg-stone-900 rounded-full">
+            {year}
+          </span>
+          <h3 className="text-xl font-semibold text-stone-800">{title}</h3>
+        </div>
+        <div className="text-sm text-stone-600">{duration}</div>
+        <p className="mt-2 text-base font-normal text-stone-700">{details}</p>
+      </div>
+    </li>
+  );
 }
