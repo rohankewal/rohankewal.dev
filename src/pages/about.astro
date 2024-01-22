@@ -6,68 +6,35 @@ import Title from "../components/Title";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
-      <article
-        class="px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white"
-      >
-        <Title>About Me</Title>
-        <p>
-          👋 Hello! I'm Rohan Kewalramani, a passionate and versatile Full Stack
-          Web Developer with a deep appreciation for innovative technologies and
-          a proven track record in delivering exceptional web solutions.
-        </p>
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <Header title={SITE_TITLE} />
+      <main class="py-8 px-4">
+        <div class="max-w-screen-md mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <Title class="text-3xl mb-4">About Me</Title>
+          <p class="text-lg leading-relaxed">
+            Hello! I'm Rohan Kewalramani, a passionate and versatile Full Stack Web Developer with a deep appreciation for innovative technologies and a proven track record in delivering exceptional web solutions.
+          </p>
 
-        <p>
-          💼 In my role as a Digital Operations Assistant at Streamline
-          Publishing, I've been at the forefront of dynamic projects that merge
-          art and technology. My expertise encompasses a wide array of
-          technologies, including .NET, C#, ASP.Net, HTML5, MySQL, JavaScript,
-          and more. You can explore my coding journey on my GitHub profile:
-          <a href="https://www.github.com/rohankewal" target="_blank"
-            >https://www.github.com/rohankewal</a
-          >.
-        </p>
+          <p class="text-lg leading-relaxed mt-4">
+            In my role as a Digital Operations Assistant at Streamline Publishing, I've been at the forefront of dynamic projects that merge art and technology. My expertise encompasses a wide array of technologies, including .NET, C#, ASP.Net, HTML5, MySQL, JavaScript, and more. You can explore my coding journey on my GitHub profile: <a href="https://www.github.com/rohankewal" target="_blank" class="text-blue-600 hover:underline">https://www.github.com/rohankewal</a>.
+          </p>
 
-        <p>
-          🚀 From implementing robust business-wide push notification systems to
-          offering top-tier customer support for live events, I've consistently
-          delivered results that exceed expectations. I've fine-tuned magazine
-          subscription automation systems, resolved intricate Google Product
-          errors, and played a pivotal role in a successful customer support
-          system implementation. I thrive in fast-paced environments and welcome
-          new challenges with an optimistic outlook.
-        </p>
+          <p class="text-lg leading-relaxed mt-4">
+            From implementing robust business-wide push notification systems to offering top-tier customer support for live events, I've consistently delivered results that exceed expectations. I've fine-tuned magazine subscription automation systems, resolved intricate Google Product errors, and played a pivotal role in a successful customer support system implementation. I thrive in fast-paced environments and welcome new challenges with an optimistic outlook.
+          </p>
 
-        <p>
-          🌐 My background extends to roles at Citro Digital and Vaswani Inc.,
-          where I've honed my skills in backend development, communication, and
-          collaboration within cross-functional teams. My dedication to
-          organization, attention to detail, and unwavering responsiveness have
-          consistently set me apart.
-        </p>
+          <p class="text-lg leading-relaxed mt-4">
+            My background extends to roles at Citro Digital and Vaswani Inc., where I've honed my skills in backend development, communication, and collaboration within cross-functional teams. My dedication to organization, attention to detail, and unwavering responsiveness have consistently set me apart.
+          </p>
 
-        <p>
-          🎯 Beyond my technical prowess, I'm known for my creative
-          problem-solving abilities and a wellspring of innovative ideas. I
-          embrace opportunities to take initiative, fostering a collaborative
-          environment that drives positive change.
-        </p>
+          <p class="text-lg leading-relaxed mt-4">
+            Beyond my technical prowess, I'm known for my creative problem-solving abilities and a wellspring of innovative ideas. I embrace opportunities to take initiative, fostering a collaborative environment that drives positive change.
+          </p>
 
-        <p>
-          🌟 I'm excited to connect with fellow professionals, share insights,
-          and explore potential collaborations. If you're interested in
-          leveraging cutting-edge technology to create exceptional web
-          experiences, let's connect!
-        </p>
-      </article>
-    </main>
+          <p class="text-lg leading-relaxed mt-4">
+            I'm excited to connect with fellow professionals, share insights, and explore potential collaborations. If you're interested in leveraging cutting-edge technology to create exceptional web experiences, let's connect!
+          </p>
+        </div>
+      </main>
+    </div>
     <Footer />
-  </body>
-</html>
