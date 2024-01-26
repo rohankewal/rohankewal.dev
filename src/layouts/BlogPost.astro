@@ -12,43 +12,28 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang='en'>
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<Header />
-		<main>
-			<article
-				class='px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white'
-			>
-				{heroImage && <Image width={720} height={360} src={heroImage} alt='' />}
-				<h1 class='title text-3xl font-bold'>{title}</h1>
-				<p class="text-gray-400">Posted On: <FormattedDate date={pubDate} /></p>
-				{
-					updatedDate && (
-						<div class='last-updated-on'>
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
-					)
-				}
-				<hr />
-				<slot />
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body class="bg-gray-100 dark:bg-gray-900">
+    <Header />
+    <main>
+      <article class='px-4 prose mx-auto max-w-screen-md prose-a:text-blue-600 hover:prose-a:text-blue-500 bg-white rounded-lg shadow-md p-6'>
+        {heroImage && <Image width={720} height={360} src={heroImage} alt='' />}
+        <h1 class='text-3xl font-bold mb-2'>{title}</h1>
+        <p class="text-gray-500">Posted On: <FormattedDate date={pubDate} /></p>
+        {
+          updatedDate && (
+            <div class='italic text-gray-500'>
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+        <hr class="my-4 border-t border-gray-300" />
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
