@@ -7,38 +7,84 @@ import TwitterIcon from "./icons/TwitterIcon.astro";
 import MastedonIcon from "./icons/MastedonIcon.astro"
 ---
 
-<header class="flex justify-between items-center px-4 py-2">
+<header class="px-4 py-2 md:flex md:justify-between md:items-center">
   <HeaderLink href="/" class="no-underline active:no-underline">
-    <h2 class="font-bold text-2xl mr-6 no-underline active:no-underline hover:no-underline">Rohan Kewalramani</h2>
+    <h2 class="font-bold text-xl md:text-2xl mr-6 no-underline active:no-underline hover:no-underline">Rohan Kewalramani</h2>
   </HeaderLink>
-  <nav class="flex items-center space-x-7">
-    <HeaderLink href="/blog">Posts</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="/setup">Setup</HeaderLink>
-  </nav>
-  <nav class="flex items-center space-x-5">
-    <HeaderLink href="https://www.youtube.com/rohankewalramani" target="_blank">
-      <YoutubeIcon class="w-7" />
-    </HeaderLink>
-    <HeaderLink href="https://www.twitter.com/rohankewal" target="_blank">
-      <TwitterIcon class="w-7" />
-    </HeaderLink>
-    <HeaderLink href="https://www.twitch.tv/rohankewal" target="_blank">
-      <TwitchIcon class="w-7" />
-    </HeaderLink>
-    <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank">
-      <MastedonIcon class="w-7" />
-    </HeaderLink>
-    <HeaderLink href="https://www.github.com/rohankewal" target="_blank">
-      <GithubIcon class="w-7" />
-    </HeaderLink>
-  </nav>
+  <div class="md:flex md:items-center md:space-x-7">
+    <nav class="hidden md:flex md:items-center md:space-x-7">
+      <HeaderLink href="/blog">Posts</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="/setup">Setup</HeaderLink>
+    </nav>
+    <div class="md:hidden flex items-center">
+      <button class="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <div class="mobile-menu hidden">
+        <nav class="flex flex-col space-y-2">
+          <HeaderLink href="/blog" class="mobile-menu-link">Posts</HeaderLink>
+          <HeaderLink href="/about" class="mobile-menu-link">About</HeaderLink>
+          <HeaderLink href="/setup" class="mobile-menu-link">Setup</HeaderLink>
+          <div class="flex space-x-2 mt-2">
+            <HeaderLink href="https://www.youtube.com/rohankewalramani" target="_blank" class="icon-link">
+              <YoutubeIcon class="w-7" />
+            </HeaderLink>
+            <HeaderLink href="https://www.twitter.com/rohankewal" target="_blank" class="icon-link">
+              <TwitterIcon class="w-7" />
+            </HeaderLink>
+            <HeaderLink href="https://www.twitch.tv/rohankewal" target="_blank" class="icon-link">
+              <TwitchIcon class="w-7" />
+            </HeaderLink>
+            <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank" class="icon-link">
+              <MastedonIcon class="w-7" />
+            </HeaderLink>
+            <HeaderLink href="https://www.github.com/rohankewal" target="_blank" class="icon-link">
+              <GithubIcon class="w-7" />
+            </HeaderLink>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
 </header>
 <style>
   header {
-    margin: 0em 0 2em;
-  }
-  h2 {
     margin: 0.5em 0;
   }
+  h2 {
+    margin: 0.25em 0;
+  }
+  .mobile-menu-button {
+    outline: none;
+  }
+  .mobile-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .mobile-menu-link {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+  }
+  .mobile-menu-link:hover {
+    background-color: #f2f2f2;
+  }
+  .icon-link {
+    color: #333;
+    text-decoration: none;
+  }
 </style>
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
