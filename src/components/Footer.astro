@@ -10,27 +10,29 @@ const today = new Date();
 ---
 
 <footer class="bg-white dark:bg-gray-900 text-black dark:text-white py-6">
-      <div class="container mx-auto flex flex-wrap items-center justify-center space-x-4">
-        <HeaderLink class="font-extrabold text-xl" href="/">Rohan Kewalramani</HeaderLink>
-        <HeaderLink class="footer-link" href="/blog">Posts</HeaderLink>
-        <HeaderLink class="footer-link" href="/about">About</HeaderLink>
-        <HeaderLink class="footer-link" href="/setup">Setup</HeaderLink>
-        <HeaderLink href="https://www.youtube.com/channel/UCRtXR1SLPBti1p5bNAioIuw" target="_blank">
-          <YoutubeIcon class="w-6" />
-        </HeaderLink>
-        <HeaderLink href="https://twitter.com/rohankewal" target="_blank">
-          <TwitterIcon class="w-6" />
-        </HeaderLink>
-        <HeaderLink href="https://twitch.tv/rohankewal" target="_blank">
-          <TwitchIcon class="w-6" />
-        </HeaderLink>
-        <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank">
-          <MastedonIcon class="w-6" />
-        </HeaderLink>
-        <HeaderLink href="https://github.com/rohankewal" target="_blank">
-          <GithubIcon class="w-6" />
-        </HeaderLink>
-      </div>
-      <hr class="my-4" />
-      <p class="text-gray-500 text-center">&copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.</p>
-    </footer>
+  <div class="container mx-auto flex flex-wrap items-center justify-center space-x-4">
+    <HeaderLink class="font-extrabold text-xl" href="/">Rohan Kewalramani</HeaderLink>
+    <HeaderLink class="footer-link" href="/blog">Posts</HeaderLink>
+    <HeaderLink class="footer-link" href="/about">About</HeaderLink>
+    <HeaderLink class="footer-link" href="/setup">Setup</HeaderLink>
+    <div class="md:hidden flex space-x-4 mt-4">
+      <HeaderLink href="https://www.youtube.com/channel/UCRtXR1SLPBti1p5bNAioIuw" target="_blank" class="icon-link">
+        <YoutubeIcon class="w-6" />
+      </HeaderLink>
+      <HeaderLink href="https://twitter.com/rohankewal" target="_blank" class="icon-link">
+        <TwitterIcon class="w-6" />
+      </HeaderLink>
+      <HeaderLink href="https://twitch.tv/rohankewal" target="_blank" class="icon-link">
+        <TwitchIcon class="w-6" />
+      </HeaderLink>
+      <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank" class="icon-link">
+        <MastedonIcon class="w-6" />
+      </HeaderLink>
+      <HeaderLink href="https://github.com/rohankewal" target="_blank" class="icon-link">
+        <GithubIcon class="w-6" />
+      </HeaderLink>
+    </div>
+  </div>
+  <hr class="my-4" />
+  <p class="text-gray-500 text-center">&copy; {today.getFullYear()} Rohan Kewalramani. All rights reserved.</p>
+</footer>
