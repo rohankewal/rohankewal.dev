@@ -1,28 +1,26 @@
-import React from 'react';
 import Title from './Title';
 
 export default function Contact() {
   return (
-    <div className='max-w-6xl mx-auto my-20 px-4'>
+    <div className='max-w-5xl mx-auto py-12 px-4'>
       <Title>Contact</Title>
-      <div className='bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6'>
-        <p className='text-lg md:text-xl mb-4 text-stone-700'>
+      <div className='border border-gray-200 dark:border-gray-800 rounded-xl p-6 mt-6'>
+        <p className='text-base text-gray-600 dark:text-gray-400 mb-4 leading-relaxed'>
           Looking for a web developer or just want to chat? Send me a message!
         </p>
-        <p className='text-lg md:text-xl mb-4 text-stone-700'>
+        <p className='text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed'>
           You can also check me out on{' '}
-          <a href='#' className='text-green-500 underline'>
+          <a href='#' className='text-blue-600 dark:text-blue-400 hover:underline'>
             UpWork
           </a>
-          !
+          .
         </p>
         <a href='mailto:rkewalramani4@gmail.com?subject=Would Love To Chat'>
-          <button className='block w-full md:w-max px-8 py-3 text-lg font-medium rounded-md text-white bg-stone-500 hover:bg-stone-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500'>
-            Get in touch with me
+          <button className='px-6 py-2.5 text-sm font-medium rounded-lg text-white bg-gray-900 dark:bg-gray-100 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors'>
+            Get in touch
           </button>
         </a>
       </div>
     </div>
   );
 }
-

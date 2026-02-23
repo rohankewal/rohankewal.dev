@@ -1,85 +1,51 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import YoutubeIcon from "./icons/YoutubeIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
-import TwitchIcon from "./icons/TwitchIcon.astro"
 import TwitterIcon from "./icons/TwitterIcon.astro";
-import MastedonIcon from "./icons/MastedonIcon.astro"
 ---
 
-<header class="px-4 py-2 md:flex md:justify-between md:items-center">
-  <HeaderLink href="/" class="no-underline active:no-underline">
-    <h2 class="font-bold text-xl md:text-2xl mr-6 no-underline active:no-underline hover:no-underline">Rohan Kewalramani</h2>
-  </HeaderLink>
-  <div class="md:flex md:items-center md:space-x-7">
-    <nav class="hidden md:flex md:items-center md:space-x-7">
+<header class="border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+    <HeaderLink href="/" class="no-underline">
+      <h2 class="font-semibold text-lg text-gray-900 dark:text-gray-100 hover:text-gray-900">Rohan Kewalramani</h2>
+    </HeaderLink>
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-6">
+        <HeaderLink href="/blog">Posts</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/setup">Setup</HeaderLink>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://www.twitter.com/rohankewal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+          <TwitterIcon class="w-5" />
+        </a>
+        <a href="https://www.github.com/rohankewal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+          <GithubIcon class="w-5" />
+        </a>
+      </div>
+      <button class="mobile-menu-button md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+    <nav class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-3">
       <HeaderLink href="/blog">Posts</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
       <HeaderLink href="/setup">Setup</HeaderLink>
-    </nav>
-    <div class="md:hidden flex items-center">
-      <button class="mobile-menu-button">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-      <div class="mobile-menu hidden">
-        <nav class="flex flex-col space-y-2">
-          <HeaderLink href="/blog" class="mobile-menu-link">Posts</HeaderLink>
-          <HeaderLink href="/about" class="mobile-menu-link">About</HeaderLink>
-          <HeaderLink href="/setup" class="mobile-menu-link">Setup</HeaderLink>
-          <div class="flex space-x-2 mt-2">
-            <HeaderLink href="https://www.youtube.com/rohankewalramani" target="_blank" class="icon-link">
-              <YoutubeIcon class="w-7" />
-            </HeaderLink>
-            <HeaderLink href="https://www.twitter.com/rohankewal" target="_blank" class="icon-link">
-              <TwitterIcon class="w-7" />
-            </HeaderLink>
-            <HeaderLink href="https://www.twitch.tv/rohankewal" target="_blank" class="icon-link">
-              <TwitchIcon class="w-7" />
-            </HeaderLink>
-            <HeaderLink href="https://mastodon.social/@rohankewal" target="_blank" class="icon-link">
-              <MastedonIcon class="w-7" />
-            </HeaderLink>
-            <HeaderLink href="https://www.github.com/rohankewal" target="_blank" class="icon-link">
-              <GithubIcon class="w-7" />
-            </HeaderLink>
-          </div>
-        </nav>
+      <div class="flex gap-3 pt-2 border-t border-gray-100 dark:border-gray-800">
+        <a href="https://www.twitter.com/rohankewal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+          <TwitterIcon class="w-5" />
+        </a>
+        <a href="https://www.github.com/rohankewal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+          <GithubIcon class="w-5" />
+        </a>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
-<style>
-  header {
-    margin: 0.5em 0;
-  }
-  h2 {
-    margin: 0.25em 0;
-  }
-  .mobile-menu-button {
-    outline: none;
-  }
-  .mobile-menu {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .mobile-menu-link {
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #333;
-  }
-  .mobile-menu-link:hover {
-    background-color: #f2f2f2;
-  }
-  .icon-link {
-    color: #333;
-    text-decoration: none;
-  }
-</style>
 <script>
   const mobileMenuButton = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
