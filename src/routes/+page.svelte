@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { marqueeItems, projects } from '$lib/data';
 	import CtaBand from '$lib/components/CtaBand.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
+
+<Seo
+	title="Rohan Kewalramani | Freelance WordPress Developer & Full-Stack Web Developer"
+	description="Freelance WordPress developer and full-stack engineer based in New Jersey. I build fast, custom WordPress, Shopify, and Squarespace sites plus Svelte/Node full-stack apps for founders and small teams."
+	path="/"
+/>
 
 <section class="animate-fade-up mx-auto max-w-[1180px] px-[clamp(20px,5vw,64px)] pt-[min(10vh,90px)] pb-[60px]">
 	<div class="mb-7 flex flex-wrap items-center gap-3.5">
@@ -17,8 +24,8 @@
 	</h1>
 
 	<p class="mb-7 max-w-[820px] text-[clamp(20px,2.6vw,30px)] leading-[1.35] text-[#c9c9c4]">
-		Freelance web developer — building fast, custom sites and full‑stack apps for founders and
-		small teams who want their site to actually feel
+		Freelance WordPress developer and full‑stack engineer — building fast, custom sites and
+		full‑stack apps for founders and small teams who want their site to actually feel
 		<span class="font-serif text-ink italic">good</span>.
 	</p>
 

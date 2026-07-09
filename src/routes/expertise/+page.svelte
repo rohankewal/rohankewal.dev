@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { skillGroups, processSteps } from '$lib/data';
 	import CtaBand from '$lib/components/CtaBand.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Expertise — Rohan Kewalramani</title>
-	<meta
-		name="description"
-		content="What Rohan Kewalramani does: platforms, full-stack dev, AI-assisted workflows, design, and growth."
-	/>
-</svelte:head>
+<Seo
+	title="Freelance WordPress, Shopify & Full-Stack Development Services | Rohan Kewalramani"
+	description="Freelance WordPress development, Shopify and Squarespace builds, full-stack Svelte/Node apps, AI-assisted workflows, design, and SEO — services offered by Rohan Kewalramani."
+	path="/expertise"
+/>
 
 <section class="animate-fade-up mx-auto max-w-[1180px] px-[clamp(20px,5vw,64px)] pt-5 pb-[100px]">
 	<span class="text-sm tracking-[0.08em] text-accent uppercase">Expertise</span>

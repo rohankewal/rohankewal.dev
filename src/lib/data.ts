@@ -48,7 +48,7 @@ export const skillGroups = [
 	{
 		mark: 'P',
 		title: 'Platforms & CMS',
-		desc: 'Custom builds and theming on the platforms small businesses actually run on.',
+		desc: 'Freelance WordPress development, plus custom builds and theming on Shopify and Squarespace — the platforms small businesses actually run on.',
 		tags: ['WordPress', 'Shopify', 'Squarespace']
 	},
 	{

@@ -1,7 +1,12 @@
-<svelte:head>
-	<title>Contact — Rohan Kewalramani</title>
-	<meta name="description" content="Get in touch with Rohan Kewalramani about a freelance project." />
-</svelte:head>
+<script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+</script>
+
+<Seo
+	title="Contact | Hire a Freelance WordPress & Full-Stack Developer"
+	description="Get in touch with Rohan Kewalramani about freelance WordPress development, Shopify or Squarespace builds, or a full-stack Svelte/Node project."
+	path="/contact"
+/>
 
 <section
 	class="animate-fade-up mx-auto flex min-h-[70vh] max-w-[1180px] flex-col justify-center px-[clamp(20px,5vw,64px)] pt-10 pb-[110px]"

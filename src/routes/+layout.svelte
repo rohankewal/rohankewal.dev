@@ -5,17 +5,14 @@
 	import BackgroundDecor from '$lib/components/BackgroundDecor.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { personSchema } from '$lib/seo';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<title>Rohan Kewalramani — Freelance Web Developer</title>
-	<meta
-		name="description"
-		content="Freelance web developer building fast, playful, custom sites and full-stack apps."
-	/>
 	<link rel="icon" href={favicon} />
+	{@html `<script type="application/ld+json">${JSON.stringify(personSchema)}<\/script>`}
 </svelte:head>
 
 <MouseGlow />
