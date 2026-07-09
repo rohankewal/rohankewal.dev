@@ -1,3 +1,5 @@
+import gpAutomateImage from '$lib/assets/projects/gp-automate.png';
+
 export const marqueeItems = [
 	'WordPress',
 	'Shopify',
@@ -9,11 +11,26 @@ export const marqueeItems = [
 	'Claude'
 ];
 
-export const projects = [
+export const projects: {
+	slug: string;
+	name: string;
+	tag: string;
+	image?: string;
+	placeholder: string;
+	placeholderLg: string;
+	summary: string;
+	description: string;
+	location: string;
+	url: string;
+	role: string;
+	stack: string;
+	industry: string;
+}[] = [
 	{
 		slug: 'gp-automate',
 		name: 'GP Automate',
 		tag: 'Medtech · WordPress',
+		image: gpAutomateImage,
 		placeholder: 'GP AUTOMATE — SCREENSHOT',
 		placeholderLg: 'GP AUTOMATE — SCREENSHOT / SITE PREVIEW',
 		summary:

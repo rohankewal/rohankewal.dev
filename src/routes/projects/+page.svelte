@@ -23,12 +23,20 @@
 	<div class="flex flex-col gap-7">
 		{#each projects as project (project.slug)}
 			<div class="overflow-hidden rounded-[22px] border border-white/10 bg-card">
-				<div class="stripe-bg-lg relative flex min-h-[340px] items-center justify-center">
-					<span
-						class="rounded-full border border-white/10 bg-bg px-4 py-2 font-mono text-sm tracking-wide text-faint"
-					>
-						{project.placeholderLg}
-					</span>
+				<div class="relative flex h-[340px] items-center justify-center overflow-hidden {project.image ? '' : 'stripe-bg-lg'}">
+					{#if project.image}
+						<img
+							src={project.image}
+							alt={`${project.name} website screenshot`}
+							class="h-full w-full object-cover object-top"
+						/>
+					{:else}
+						<span
+							class="rounded-full border border-white/10 bg-bg px-4 py-2 font-mono text-sm tracking-wide text-faint"
+						>
+							{project.placeholderLg}
+						</span>
+					{/if}
 				</div>
 				<div class="flex flex-col gap-6 p-[clamp(28px,5vw,52px)]">
 					<div class="flex flex-wrap items-start justify-between gap-4">
