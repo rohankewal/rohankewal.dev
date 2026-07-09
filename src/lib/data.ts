@@ -1,4 +1,5 @@
 import gpAutomateImage from '$lib/assets/projects/gp-automate.png';
+import runwayImage from '$lib/assets/projects/runway.png';
 
 export const marqueeItems = [
 	'WordPress',
@@ -47,6 +48,7 @@ export const projects: {
 		slug: 'runway',
 		name: 'Runway',
 		tag: 'SaaS · Founder & Solo Build',
+		image: runwayImage,
 		placeholder: 'RUNWAY — SCREENSHOT',
 		placeholderLg: 'RUNWAY — SCREENSHOT / PRODUCT PREVIEW',
 		summary:
