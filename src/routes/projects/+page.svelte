@@ -44,14 +44,31 @@
 							<h2 class="mb-2 font-serif text-4xl font-normal text-ink">{project.name}</h2>
 							<span class="text-[15px] text-muted">{project.location}</span>
 						</div>
-						<a
-							href={project.url}
-							target="_blank"
-							rel="noreferrer"
-							class="rounded-full bg-accent px-[22px] py-3 text-sm font-semibold text-bg!"
-						>
-							Visit site ↗
-						</a>
+						<div class="flex flex-wrap items-center gap-3">
+							{#if project.slug === 'runway'}
+								<a
+									href="https://www.producthunt.com/products/runway-6?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-runway-15"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<img
+										src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1198244&theme=light&t=1784235413669"
+										alt="Runway - Know exactly how long your freelance income will last | Product Hunt"
+										width="250"
+										height="54"
+										class="h-[38px] w-auto"
+									/>
+								</a>
+							{/if}
+							<a
+								href={project.url}
+								target="_blank"
+								rel="noreferrer"
+								class="rounded-full bg-accent px-[22px] py-3 text-sm font-semibold text-bg!"
+							>
+								Visit site ↗
+							</a>
+						</div>
 					</div>
 					<p class="max-w-[760px] text-[17px] leading-[1.7] text-[#c9c9c4]">
 						{project.description}
