@@ -1,5 +1,6 @@
 import gpAutomateImage from '$lib/assets/projects/gp-automate.png';
 import runwayImage from '$lib/assets/projects/runway.png';
+import herdrNerdFontImage from '$lib/assets/projects/herdr-nerd-font-tab-name.png';
 
 export const marqueeItems = [
 	'WordPress',
@@ -60,6 +61,25 @@ export const projects: {
 		role: 'Founder & Solo Builder',
 		stack: 'Svelte, Tailwind CSS, Supabase, shadcn/ui',
 		industry: 'SaaS / Fintech for freelancers'
+	}
+];
+
+export const openSourceProjects: {
+	slug: string;
+	name: string;
+	image: string;
+	summary: string;
+	language: string;
+	url: string;
+}[] = [
+	{
+		slug: 'herdr-nerd-font-tab-name',
+		name: 'herdr-nerd-font-tab-name',
+		image: herdrNerdFontImage,
+		summary:
+			'A plugin that gives every herdr terminal tab a Nerd Font icon for whatever is actually running in it — editor, server, docs, or an AI coding agent. An event-driven watcher resolves the icon and rewrites the label, without clobbering tabs you named yourself.',
+		language: 'Python',
+		url: 'https://github.com/rohankewal/herdr-nerd-font-tab-name'
 	}
 ];
 
