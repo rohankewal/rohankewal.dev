@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import MouseGlow from '$lib/components/MouseGlow.svelte';
 	import BackgroundDecor from '$lib/components/BackgroundDecor.svelte';
 	import Nav from '$lib/components/Nav.svelte';
@@ -11,7 +10,10 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+	<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	{@html `<script type="application/ld+json">${JSON.stringify(personSchema)}<\/script>`}
 </svelte:head>
 
