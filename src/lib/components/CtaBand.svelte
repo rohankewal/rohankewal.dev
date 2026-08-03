@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from '$lib/components/Button.svelte';
+
 	let {
 		heading,
 		buttonLabel = "Let's talk →",
@@ -18,10 +20,5 @@
 	>
 		{heading}
 	</h2>
-	<a
-		href="/contact"
-		class="rounded-full bg-accent px-8 py-4 text-[15px] font-semibold whitespace-nowrap text-bg! transition-transform duration-200 hover:scale-105"
-	>
-		{buttonLabel}
-	</a>
+	<Button href="/contact" label={buttonLabel} />
 </div>

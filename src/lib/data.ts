@@ -13,7 +13,13 @@ export const marqueeItems = [
 	'Claude'
 ];
 
-export const projects: {
+export type ProductHuntBadge = {
+	url: string;
+	imageUrl: string;
+	alt: string;
+};
+
+export type Project = {
 	slug: string;
 	name: string;
 	tag: string;
@@ -27,7 +33,10 @@ export const projects: {
 	role: string;
 	stack: string;
 	industry: string;
-}[] = [
+	productHunt?: ProductHuntBadge;
+};
+
+export const projects: Project[] = [
 	{
 		slug: 'gp-automate',
 		name: 'GP Automate',
@@ -60,18 +69,26 @@ export const projects: {
 		url: 'https://freelancerunway.com',
 		role: 'Founder & Solo Builder',
 		stack: 'Svelte, Tailwind CSS, Supabase, shadcn/ui',
-		industry: 'SaaS / Fintech for freelancers'
+		industry: 'SaaS / Fintech for freelancers',
+		productHunt: {
+			url: 'https://www.producthunt.com/products/runway-6?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-runway-15',
+			imageUrl:
+				'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1198244&theme=light&t=1784235413669',
+			alt: 'Runway - Know exactly how long your freelance income will last | Product Hunt'
+		}
 	}
 ];
 
-export const openSourceProjects: {
+export type OpenSourceProject = {
 	slug: string;
 	name: string;
 	image: string;
 	summary: string;
 	language: string;
 	url: string;
-}[] = [
+};
+
+export const openSourceProjects: OpenSourceProject[] = [
 	{
 		slug: 'herdr-nerd-font-tab-name',
 		name: 'herdr-nerd-font-tab-name',
@@ -83,7 +100,14 @@ export const openSourceProjects: {
 	}
 ];
 
-export const skillGroups = [
+export type SkillGroup = {
+	mark: string;
+	title: string;
+	desc: string;
+	tags: string[];
+};
+
+export const skillGroups: SkillGroup[] = [
 	{
 		mark: 'P',
 		title: 'Platforms & CMS',
@@ -116,7 +140,7 @@ export const skillGroups = [
 	}
 ];
 
-export const pricingTiers: {
+export type PricingTier = {
 	name: string;
 	price: string;
 	tagline: string;
@@ -124,7 +148,9 @@ export const pricingTiers: {
 	features: string[];
 	featured: boolean;
 	cta: string;
-}[] = [
+};
+
+export const pricingTiers: PricingTier[] = [
 	{
 		name: 'Simple',
 		price: '$800+',
@@ -145,7 +171,13 @@ export const pricingTiers: {
 	}
 ];
 
-export const processSteps = [
+export type ProcessStep = {
+	n: string;
+	title: string;
+	desc: string;
+};
+
+export const processSteps: ProcessStep[] = [
 	{ n: '01', title: 'Discover', desc: 'Understand the goal, the users, and what "done" looks like.' },
 	{ n: '02', title: 'Design', desc: 'Wireframe and design the flows before touching code.' },
 	{ n: '03', title: 'Build', desc: 'Ship a fast, clean, maintainable implementation.' },

@@ -1,3 +1,5 @@
+import { socialLinks } from '$lib/site';
+
 export const siteUrl = 'https://rohankewal.surge.sh';
 export const siteName = 'Rohan Kewalramani';
 export const ogImage = '/og-image.png';
@@ -19,11 +21,7 @@ export const personSchema = {
 				addressRegion: 'NJ',
 				addressCountry: 'US'
 			},
-			sameAs: [
-				'https://github.com/rohankewal',
-				'https://www.linkedin.com/in/rohankewalramani/',
-				'https://x.com/rohankewal732'
-			],
+			sameAs: socialLinks.map((link) => link.url),
 			knowsAbout: [
 				'WordPress Development',
 				'Shopify Development',
