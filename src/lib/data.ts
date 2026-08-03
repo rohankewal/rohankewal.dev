@@ -116,6 +116,35 @@ export const skillGroups = [
 	}
 ];
 
+export const pricingTiers: {
+	name: string;
+	price: string;
+	tagline: string;
+	timeline: string;
+	features: string[];
+	featured: boolean;
+	cta: string;
+}[] = [
+	{
+		name: 'Simple',
+		price: '$800+',
+		tagline: 'Straightforward websites — a marketing site, a landing page, a small shop.',
+		timeline: '1–2 weeks',
+		features: ['Custom design, not a stock template', 'Fast and mobile-friendly', 'SEO basics covered'],
+		featured: false,
+		cta: 'Start a project →'
+	},
+	{
+		name: 'Advanced',
+		price: '$1,500+',
+		tagline: 'More involved builds — bigger sites, custom functionality, or a full web app.',
+		timeline: '4+ weeks',
+		features: ['Everything in Simple', 'Custom features and integrations'],
+		featured: true,
+		cta: "Let's scope it →"
+	}
+];
+
 export const processSteps = [
 	{ n: '01', title: 'Discover', desc: 'Understand the goal, the users, and what "done" looks like.' },
 	{ n: '02', title: 'Design', desc: 'Wireframe and design the flows before touching code.' },

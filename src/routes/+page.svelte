@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { marqueeItems, projects } from '$lib/data';
+	import { marqueeItems, projects, pricingTiers } from '$lib/data';
 	import CtaBand from '$lib/components/CtaBand.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 </script>
@@ -118,6 +118,65 @@
 	</div>
 </section>
 
-<section class="mx-auto max-w-[1180px] px-[clamp(20px,5vw,64px)] pb-[110px]">
+<section class="border-t border-white/8 bg-card/40">
+	<div class="mx-auto max-w-[1180px] px-[clamp(20px,5vw,64px)] py-24">
+		<div class="mb-9 max-w-[640px]">
+			<span class="text-sm tracking-[0.08em] text-accent uppercase">Freelance work</span>
+			<h2 class="mt-2 mb-4 font-serif text-[clamp(30px,4vw,46px)] font-normal text-ink">
+				What it <span class="text-accent italic">costs</span>
+			</h2>
+			<p class="text-[17px] leading-[1.6] text-muted">
+				Every project is quoted properly once I know the scope — but here's the honest starting
+				point, so you know whether we're in the same ballpark before you email me.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+			{#each pricingTiers as tier (tier.name)}
+				<div
+					class="flex flex-col rounded-[20px] border p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 {tier.featured
+						? 'border-accent/35 bg-gradient-to-br from-[#17140b] to-[#0f0f0d] hover:border-accent/60'
+						: 'border-white/10 bg-card hover:border-accent/35'}"
+				>
+					<h3 class="mb-4 font-serif text-[28px] font-normal text-ink">{tier.name}</h3>
+
+					<div class="mb-1 font-serif text-[clamp(38px,5vw,52px)] leading-none text-ink">
+						{tier.price}
+					</div>
+					<div class="mb-5 text-[13px] tracking-[0.06em] text-faint uppercase">
+						Typically {tier.timeline}
+					</div>
+
+					<p class="mb-6 text-[15px] leading-[1.6] text-muted">{tier.tagline}</p>
+
+					<ul class="mb-8 flex flex-col gap-3">
+						{#each tier.features as feature (feature)}
+							<li class="flex gap-3 text-[15px] leading-[1.5] text-[#c9c9c4]">
+								<span aria-hidden="true" class="mt-0.5 text-accent">→</span>
+								<span>{feature}</span>
+							</li>
+						{/each}
+					</ul>
+
+					<a
+						href="/contact"
+						class="mt-auto w-fit rounded-full px-7 py-3.5 text-[15px] font-semibold transition-transform duration-200 hover:scale-105 {tier.featured
+							? 'bg-accent text-bg!'
+							: 'border border-white/18 text-ink!'}"
+					>
+						{tier.cta}
+					</a>
+				</div>
+			{/each}
+		</div>
+
+		<p class="mt-8 max-w-[640px] text-sm leading-[1.6] text-faint">
+			Not sure which one you need? Send me what you're trying to build and I'll tell you straight —
+			including if it's smaller than you think.
+		</p>
+	</div>
+</section>
+
+<section class="mx-auto max-w-[1180px] px-[clamp(20px,5vw,64px)] py-[110px]">
 	<CtaBand heading="Got a project worth building well?" large />
 </section>
