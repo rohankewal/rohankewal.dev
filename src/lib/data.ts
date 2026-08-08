@@ -1,4 +1,5 @@
 import gpAutomateImage from '$lib/assets/projects/gp-automate.png';
+import premierMedicalCentreImage from '$lib/assets/projects/premier-medical-centre.png';
 import runwayImage from '$lib/assets/projects/runway.png';
 import herdrNerdFontImage from '$lib/assets/projects/herdr-nerd-font-tab-name.png';
 
@@ -53,6 +54,23 @@ export const projects: Project[] = [
 		role: 'Freelance WordPress Developer',
 		stack: 'WordPress, Custom Theme, SEO',
 		industry: 'Healthcare / Medtech'
+	},
+	{
+		slug: 'premier-medical-centre',
+		name: 'Premier Medical Centre',
+		tag: 'Healthcare · WordPress',
+		image: premierMedicalCentreImage,
+		placeholder: 'PREMIER MEDICAL CENTRE — SCREENSHOT',
+		placeholderLg: 'PREMIER MEDICAL CENTRE — SCREENSHOT / SITE PREVIEW',
+		summary:
+			'An NHS GP practice in Wembley. A patient facing site built around the tasks people actually come for: registering, booking, and ordering prescriptions.',
+		description:
+			'Premier Medical Centre is an NHS GP practice serving Wembley, Brent and Harrow. The site puts the things patients actually need within one click of the homepage: registering with the practice, booking an appointment, ordering a repeat prescription, and booking a blood test. Built and maintained as their freelance WordPress developer, with urgent care guidance surfaced site wide so nobody has to hunt for it.',
+		location: 'Healthcare · London, UK',
+		url: 'https://premiermedicalcentre.nhs.uk',
+		role: 'Freelance WordPress Developer',
+		stack: 'WordPress, Elementor, SEO',
+		industry: 'Healthcare / NHS Primary Care'
 	},
 	{
 		slug: 'runway',
