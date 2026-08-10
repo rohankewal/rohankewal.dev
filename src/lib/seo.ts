@@ -1,6 +1,6 @@
 import { socialLinks } from '$lib/site';
 
-export const siteUrl = 'https://rohankewal.surge.sh';
+export const siteUrl = 'https://rohankewal.dev';
 export const siteName = 'Rohan Kewalramani';
 export const ogImage = '/og-image.png';
 

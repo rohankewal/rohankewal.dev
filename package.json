@@ -10,7 +10,7 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"deploy": "npm run build && npx surge build rohankewal.surge.sh"
+		"deploy": "npm run build && npx wrangler deploy"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.10",

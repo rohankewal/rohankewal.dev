@@ -1,0 +1,10 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "rohankewal-dev",
+	"compatibility_date": "2026-08-10",
+	// Static-only site: SvelteKit's adapter-static prerenders every route into
+	// build/, so there is no Worker entrypoint to run.
+	"assets": {
+		"directory": "./build"
+	}
+}
