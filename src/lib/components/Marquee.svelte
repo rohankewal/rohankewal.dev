@@ -9,7 +9,7 @@
 	<div class="animate-marquee flex w-max gap-14">
 		{#each [...items, ...items] as item, i (i)}
 			<span
-				class="flex items-center gap-14 font-serif text-2xl whitespace-nowrap text-[#3a3a36] italic"
+				class="flex items-center gap-14 font-serif text-2xl whitespace-nowrap text-surface2 italic"
 			>
 				{item} <span class="font-sans text-sm text-accent not-italic">●</span>
 			</span>

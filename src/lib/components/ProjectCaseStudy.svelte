@@ -37,7 +37,7 @@
 			<span class="text-[14px] text-muted">{project.location}</span>
 		</div>
 
-		<p class="text-[15px] leading-[1.65] text-[#c9c9c4]">
+		<p class="text-[15px] leading-[1.65] text-soft">
 			{project.summary}
 		</p>
 

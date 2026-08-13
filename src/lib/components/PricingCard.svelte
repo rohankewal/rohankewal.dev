@@ -7,7 +7,7 @@
 
 <div
 	class="flex flex-col rounded-[20px] border p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 {tier.featured
-		? 'border-accent/35 bg-gradient-to-br from-[#17140b] to-[#0f0f0d] hover:border-accent/60'
+		? 'border-accent/35 bg-gradient-to-br from-surface to-card hover:border-accent/60'
 		: 'border-white/10 bg-card hover:border-accent/35'}"
 >
 	<h3 class="mb-4 font-serif text-[28px] font-normal text-ink">{tier.name}</h3>
@@ -23,7 +23,7 @@
 
 	<ul class="mb-8 flex flex-col gap-3">
 		{#each tier.features as feature (feature)}
-			<li class="flex gap-3 text-[15px] leading-[1.5] text-[#c9c9c4]">
+			<li class="flex gap-3 text-[15px] leading-[1.5] text-soft">
 				<span aria-hidden="true" class="mt-0.5 text-accent">→</span>
 				<span>{feature}</span>
 			</li>

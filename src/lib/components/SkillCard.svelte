@@ -16,7 +16,7 @@
 	<p class="mb-4.5 text-[15px] leading-[1.6] text-muted">{group.desc}</p>
 	<div class="flex flex-wrap gap-2">
 		{#each group.tags as tag (tag)}
-			<span class="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 text-[13px] text-[#c9c9c4]">
+			<span class="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 text-[13px] text-soft">
 				{tag}
 			</span>
 		{/each}

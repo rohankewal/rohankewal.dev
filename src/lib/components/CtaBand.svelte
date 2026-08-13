@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-accent/18 bg-gradient-to-br from-[#17140b] to-[#0f0f0d] {large
+	class="flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-accent/18 bg-gradient-to-br from-surface to-card {large
 		? 'p-[clamp(40px,6vw,72px)]'
 		: 'p-[clamp(36px,6vw,64px)]'}"
 >

@@ -17,7 +17,7 @@
 		Rohan <span class="text-accent italic">Kewalramani</span>
 	</h1>
 
-	<p class="mb-7 max-w-[820px] text-[clamp(20px,2.6vw,30px)] leading-[1.35] text-[#c9c9c4]">
+	<p class="mb-7 max-w-[820px] text-[clamp(20px,2.6vw,30px)] leading-[1.35] text-soft">
 		Freelance WordPress developer and full‑stack engineer — building fast, custom sites and
 		full‑stack apps for founders and small teams who want their site to actually feel
 		<span class="font-serif text-ink italic">good</span>.

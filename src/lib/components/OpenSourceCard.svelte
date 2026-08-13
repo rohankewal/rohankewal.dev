@@ -25,7 +25,7 @@
 				{project.language}
 			</div>
 		</div>
-		<p class="flex-1 text-[15px] leading-[1.65] text-[#c9c9c4]">{project.summary}</p>
+		<p class="flex-1 text-[15px] leading-[1.65] text-soft">{project.summary}</p>
 		<span class="text-[15px] text-accent">View on GitHub ↗</span>
 	</div>
 </a>

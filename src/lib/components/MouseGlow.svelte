@@ -17,5 +17,5 @@
 <div
 	bind:this={el}
 	class="pointer-events-none fixed top-0 left-0 z-[2] -ml-[110px] -mt-[110px] h-[220px] w-[220px] rounded-full opacity-0 transition-opacity duration-300"
-	style="background: radial-gradient(circle, rgba(255,210,63,0.16) 0%, rgba(255,210,63,0) 70%);"
+	style="background: radial-gradient(circle, rgba(238,212,159,0.16) 0%, rgba(238,212,159,0) 70%);"
 ></div>
