@@ -9,7 +9,7 @@
 	}: {
 		href: string;
 		label: string;
-		variant?: 'primary' | 'secondary';
+		variant?: 'primary' | 'secondary' | 'onFill';
 		size?: 'sm' | 'md' | 'lg';
 		external?: boolean;
 		class?: string;
@@ -17,7 +17,9 @@
 
 	const variants = {
 		primary: 'bg-accent font-semibold text-bg!',
-		secondary: 'border border-white/18 font-medium text-ink!'
+		secondary: 'border border-white/18 font-medium text-ink!',
+		// For use on top of a saturated filled surface, where `primary` would vanish.
+		onFill: 'bg-bg font-semibold text-ink!'
 	};
 
 	const sizes = {

@@ -9,7 +9,7 @@
 <div class="relative">
 	<a
 		href="/projects"
-		class="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-card transition-colors duration-250 hover:border-accent/35"
+		class="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-card transition-colors duration-250 hover:border-accent/55"
 	>
 		<div
 			class="relative flex h-[200px] items-center justify-center overflow-hidden {project.image

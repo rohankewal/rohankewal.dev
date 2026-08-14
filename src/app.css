@@ -5,9 +5,11 @@
 	--font-serif: 'Instrument Serif', serif;
 
 	/* Catppuccin Macchiato */
-	--color-bg: #24273a; /* base */
+	--color-bg: #181926; /* crust */
 	--color-ink: #cad3f5; /* text */
 	--color-accent: #eed49f; /* yellow */
+	--color-green: #a6da95; /* green — status only, never decorative */
+	--color-mauve: #c6a0f6; /* mauve — the CTA fill, nothing else */
 	--color-bright: #f4dbd6; /* rosewater */
 	--color-soft: #b8c0e0; /* subtext1 */
 	--color-muted: #a5adcb; /* subtext0 */

@@ -6,9 +6,12 @@
 
 <Section class="animate-fade-up pt-[min(10vh,90px)] pb-[60px]">
 	<div class="mb-7 flex flex-wrap items-center gap-3.5">
-		<div class="flex items-center gap-2 rounded-full bg-accent py-2 pr-4 pl-3">
-			<span class="animate-pulse-dot h-[9px] w-[9px] rounded-full bg-bg"></span>
-			<span class="text-[13px] font-bold tracking-[0.08em] text-bg uppercase">{availability}</span>
+		<div
+			class="flex items-center gap-2 rounded-full border border-green/30 bg-green/12 py-2 pr-4 pl-3"
+		>
+			<span class="animate-pulse-dot h-[9px] w-[9px] rounded-full bg-green"></span>
+			<span class="text-[13px] font-bold tracking-[0.08em] text-green uppercase">{availability}</span
+			>
 		</div>
 		<span class="text-sm tracking-wide text-muted">📍 Based in {location}</span>
 	</div>

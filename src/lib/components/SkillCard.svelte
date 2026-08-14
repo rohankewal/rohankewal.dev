@@ -5,10 +5,10 @@
 </script>
 
 <div
-	class="rounded-[20px] border border-white/10 bg-card p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 hover:border-accent/35"
+	class="rounded-[20px] border border-white/10 bg-card p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 hover:border-accent/55"
 >
 	<div
-		class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/12 font-serif text-[22px] text-accent italic"
+		class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/18 font-serif text-[22px] text-accent italic"
 	>
 		{group.mark}
 	</div>

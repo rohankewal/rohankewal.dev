@@ -8,8 +8,9 @@
 	<div class="flex flex-wrap items-center gap-4">
 		<span class="text-sm text-faint">© {new Date().getFullYear()} Rohan Kewalramani</span>
 		<span
-			class="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-bold tracking-wider text-bg uppercase"
+			class="flex items-center gap-1.5 rounded-full border border-green/30 bg-green/12 px-3 py-1 text-xs font-bold tracking-wider text-green uppercase"
 		>
+			<span class="animate-pulse-dot size-1.5 rounded-full bg-green"></span>
 			{availability}
 		</span>
 		<span class="text-[13px] text-faint">📍 {location}</span>
