@@ -21,6 +21,12 @@ export const socialLinks: {
 		url: 'https://www.linkedin.com/in/rohankewalramani/'
 	},
 	{
+		label: 'Upwork',
+		shortLabel: 'Upwork',
+		handle: 'Rohan Kewalramani',
+		url: 'https://www.upwork.com/freelancers/~01ef28d944461be260'
+	},
+	{
 		label: 'X / Twitter',
 		shortLabel: 'X',
 		handle: '@rohankewal',

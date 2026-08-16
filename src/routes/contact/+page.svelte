@@ -28,7 +28,7 @@
 		{email}
 	</a>
 
-	<div class="grid max-w-[760px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
+	<div class="grid max-w-[800px] grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
 		{#each socialLinks as link (link.url)}
 			<ContactCard label={link.label} value={link.handle} href={link.url} />
 		{/each}
