@@ -2,6 +2,7 @@ import gpAutomateImage from '$lib/assets/projects/gp-automate.png';
 import premierMedicalCentreImage from '$lib/assets/projects/premier-medical-centre.png';
 import runwayImage from '$lib/assets/projects/runway.png';
 import herdrNerdFontImage from '$lib/assets/projects/herdr-nerd-font-tab-name.png';
+import pomImage from '$lib/assets/projects/pom.png';
 
 export const marqueeItems = [
 	'WordPress',
@@ -101,6 +102,7 @@ export type OpenSourceProject = {
 	slug: string;
 	name: string;
 	image: string;
+	imageAlt: string;
 	summary: string;
 	language: string;
 	url: string;
@@ -111,10 +113,21 @@ export const openSourceProjects: OpenSourceProject[] = [
 		slug: 'herdr-nerd-font-tab-name',
 		name: 'herdr-nerd-font-tab-name',
 		image: herdrNerdFontImage,
+		imageAlt: 'herdr terminal tab bar showing Nerd Font icons',
 		summary:
 			'A plugin that gives every herdr terminal tab a Nerd Font icon for whatever is actually running in it — editor, server, docs, or an AI coding agent. An event-driven watcher resolves the icon and rewrites the label, without clobbering tabs you named yourself.',
 		language: 'Python',
 		url: 'https://github.com/rohankewal/herdr-nerd-font-tab-name'
+	},
+	{
+		slug: 'pom',
+		name: 'pom',
+		image: pomImage,
+		imageAlt: 'pom running in a terminal, showing a work block, progress bar and keybindings',
+		summary:
+			'A Pomodoro timer that lives in your terminal. Work blocks and breaks, analytics with a focus heatmap and streaks, 14 themes, lo-fi music, lifecycle hooks, and live state for tmux and herdr status lines — all in a single binary with no runtime dependencies.',
+		language: 'Go',
+		url: 'https://github.com/rohankewal/pom'
 	}
 ];
 

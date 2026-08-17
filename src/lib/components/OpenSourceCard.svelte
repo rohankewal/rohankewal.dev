@@ -13,7 +13,7 @@
 	<div class="flex items-center border-b border-white/8 bg-bg px-4 py-5">
 		<img
 			src={project.image}
-			alt={`${project.name} terminal tab bar showing Nerd Font icons`}
+			alt={project.imageAlt}
 			class="w-full rounded-md"
 		/>
 	</div>
