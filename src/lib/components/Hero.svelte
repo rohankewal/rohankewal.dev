@@ -32,7 +32,7 @@
 	</p>
 
 	<div class="flex flex-wrap gap-4">
-		<Button href="/projects" label="View my work →" />
-		<Button href="/contact" label="Get in touch" variant="secondary" />
+		<Button href="/contact" label="Get in touch →" />
+		<Button href="/projects" label="View my work" variant="secondary" />
 	</div>
 </Section>
