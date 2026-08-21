@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { projects, pricingTiers } from '$lib/data';
+	import { projects, pricingTiers, services } from '$lib/data';
 	import CtaBand from '$lib/components/CtaBand.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Marquee from '$lib/components/Marquee.svelte';
 	import PricingCard from '$lib/components/PricingCard.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import ServiceCard from '$lib/components/ServiceCard.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 </script>
@@ -19,6 +20,24 @@
 <Hero />
 
 <Marquee />
+
+<section id="services" class="bg-card/40">
+	<Section element="div" class="py-24">
+		<SectionHeading
+			eyebrow="Services"
+			title="How I can"
+			accent="help"
+			lead="Most of this work starts as a business problem rather than a spec. Here's what I take on, and what each one is meant to do for you. If yours doesn't land neatly in one of these, it's still worth an email."
+			class="mb-9 max-w-[680px]"
+		/>
+
+		<div class="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+			{#each services as service (service.title)}
+				<ServiceCard {service} />
+			{/each}
+		</div>
+	</Section>
+</section>
 
 <Section class="py-24">
 	<SectionHeading

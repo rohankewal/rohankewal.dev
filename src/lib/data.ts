@@ -171,6 +171,52 @@ export const skillGroups: SkillGroup[] = [
 	}
 ];
 
+export type Service = {
+	mark: string;
+	title: string;
+	desc: string;
+	fit: string;
+};
+
+export const services: Service[] = [
+	{
+		mark: 'W',
+		title: 'A website that brings in work',
+		desc: 'A custom site that explains what you do and makes it easy to get in touch. Fast on phones, built on WordPress or Squarespace, and set up so you can edit the copy yourself.',
+		fit: "You have no site yet, or one you'd rather not send to a client."
+	},
+	{
+		mark: 'R',
+		title: 'A redesign of the site you have',
+		desc: "Your business moved on and the site didn't. I rebuild the design and structure and fix what's slow, while keeping the pages search engines already know about.",
+		fit: 'Your site works but looks and feels years behind the business.'
+	},
+	{
+		mark: 'S',
+		title: 'An online store',
+		desc: 'Shopify builds and custom theming for selling products. Clear product pages, a checkout that stays out of the way, and a store you can run day to day without calling a developer.',
+		fit: 'You sell products, or you want to start.'
+	},
+	{
+		mark: 'A',
+		title: 'A custom app or tool',
+		desc: 'When a website is not enough and off the shelf software does not fit, I build the product itself in Svelte and Node. Designed and shipped end to end, the same way I built Runway.',
+		fit: 'You have a workflow, portal, or internal tool that needs building.'
+	},
+	{
+		mark: 'F',
+		title: 'Getting found in search',
+		desc: 'On page SEO, site structure, and page speed so the right people actually land on you. Part of every build, and available on its own for a site that already exists.',
+		fit: 'You get very little traffic, or traffic that never converts.'
+	},
+	{
+		mark: 'C',
+		title: 'Ongoing care after launch',
+		desc: 'Someone to email when something breaks or you need a new page. Updates, fixes, small features, and a developer who already knows how your site is put together.',
+		fit: "You don't want to find a new developer every time something changes."
+	}
+];
+
 export type PricingTier = {
 	name: string;
 	price: string;
