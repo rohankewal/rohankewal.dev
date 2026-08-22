@@ -19,12 +19,15 @@
 
 <MouseGlow />
 
-<div class="relative min-h-screen overflow-x-hidden bg-bg font-sans">
+<!-- Column layout so `main` absorbs the leftover height and the footer stays on
+     the bottom edge on short pages. BackgroundDecor and Nav are both fixed, so
+     they sit outside the flow and are unaffected. -->
+<div class="relative flex min-h-screen flex-col overflow-x-hidden bg-bg font-sans">
 	<BackgroundDecor />
 
 	<Nav />
 
-	<main class="relative z-1 pt-24">
+	<main class="relative z-1 flex-1 pt-24">
 		{@render children()}
 	</main>
 
