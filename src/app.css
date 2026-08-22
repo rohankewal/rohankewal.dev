@@ -130,6 +130,152 @@ a:hover {
 	animation: pulseDot 2s ease-in-out infinite;
 }
 
+/* Long-form post body. Written by hand rather than pulled from the typography
+   plugin so the type scale and every colour come from the palette above. */
+.prose {
+	color: var(--color-soft);
+	font-size: 18px;
+	line-height: 1.75;
+}
+
+.prose > * + * {
+	margin-top: 1.35em;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+	font-family: var(--font-serif);
+	font-weight: 400;
+	color: var(--color-ink);
+	line-height: 1.25;
+	margin-top: 2em;
+	margin-bottom: 0.6em;
+}
+
+.prose h2 {
+	font-size: 34px;
+}
+
+.prose h3 {
+	font-size: 26px;
+}
+
+.prose h4 {
+	font-size: 21px;
+}
+
+.prose strong {
+	color: var(--color-ink);
+	font-weight: 600;
+}
+
+.prose em {
+	font-family: var(--font-serif);
+	font-size: 1.05em;
+}
+
+.prose a {
+	color: var(--color-accent);
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+	text-underline-offset: 3px;
+}
+
+.prose a:hover {
+	color: var(--color-bright);
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1.3em;
+}
+
+.prose li + li {
+	margin-top: 0.5em;
+}
+
+.prose ul > li::marker {
+	color: var(--color-accent);
+}
+
+.prose ol > li::marker {
+	color: var(--color-faint);
+}
+
+.prose blockquote {
+	border-left: 2px solid var(--color-accent);
+	padding-left: 1.2em;
+	font-family: var(--font-serif);
+	font-size: 1.15em;
+	font-style: italic;
+	color: var(--color-ink);
+}
+
+.prose blockquote p + p {
+	margin-top: 0.7em;
+}
+
+.prose code {
+	font-size: 0.88em;
+	background: var(--color-card);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 5px;
+	padding: 0.15em 0.4em;
+	color: var(--color-accent);
+}
+
+.prose pre {
+	background: var(--color-card);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 14px;
+	padding: 20px 22px;
+	overflow-x: auto;
+	font-size: 14.5px;
+	line-height: 1.6;
+}
+
+.prose pre code {
+	background: none;
+	border: none;
+	padding: 0;
+	color: var(--color-soft);
+	font-size: inherit;
+}
+
+.prose hr {
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+}
+
+.prose img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 16px;
+}
+
+.prose th,
+.prose td {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 10px 14px;
+	text-align: left;
+}
+
+.prose th {
+	color: var(--color-ink);
+	font-weight: 600;
+	background: var(--color-card);
+}
+
 .stripe-bg {
 	background-image: repeating-linear-gradient(
 		135deg,
