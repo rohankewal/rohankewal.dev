@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { projects, pricingTiers, services } from '$lib/data';
+	import { projects, pricingTiers, services, toolGroups } from '$lib/data';
+	import { postSummaries } from '$lib/blog';
 	import CtaBand from '$lib/components/CtaBand.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import Marquee from '$lib/components/Marquee.svelte';
+	import PostPreviewCard from '$lib/components/PostPreviewCard.svelte';
 	import PricingCard from '$lib/components/PricingCard.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Section from '$lib/components/Section.svelte';
@@ -19,9 +20,7 @@
 
 <Hero />
 
-<Marquee />
-
-<section id="services" class="bg-card/40">
+<section id="services" class="border-t border-white/8 bg-card/40">
 	<Section element="div" class="py-24">
 		<SectionHeading
 			eyebrow="Services"
@@ -35,6 +34,30 @@
 			{#each services as service (service.title)}
 				<ServiceCard {service} />
 			{/each}
+		</div>
+
+		<div class="mt-12 border-t border-white/8 pt-8">
+			<span class="text-[13px] tracking-[0.08em] text-faint uppercase">What I build with</span>
+
+			<div class="mt-6 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+				{#each toolGroups as group (group.label)}
+					<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+						<span class="w-[132px] shrink-0 text-[13px] tracking-[0.06em] text-accent uppercase">
+							{group.label}
+						</span>
+
+						<div class="flex flex-wrap gap-2">
+							{#each group.items as item (item)}
+								<span
+									class="rounded-full border border-white/10 bg-card px-3.5 py-1.5 text-sm tracking-wide text-soft"
+								>
+									{item}
+								</span>
+							{/each}
+						</div>
+					</div>
+				{/each}
+			</div>
 		</div>
 	</Section>
 </section>
@@ -56,6 +79,29 @@
 		{/each}
 	</div>
 </Section>
+
+{#if postSummaries.length}
+	<section class="border-t border-white/8">
+		<Section element="div" class="py-24">
+			<SectionHeading
+				eyebrow="Writing"
+				title="Recent"
+				accent="notes"
+				class="mb-9 flex flex-wrap items-baseline justify-between gap-3"
+			>
+				{#snippet action()}
+					<a href="/blog" class="border-b border-white/20 text-[15px] text-muted!">Read the blog →</a>
+				{/snippet}
+			</SectionHeading>
+
+			<div class="grid gap-6 sm:grid-cols-2">
+				{#each postSummaries.slice(0, 4) as post (post.slug)}
+					<PostPreviewCard {post} />
+				{/each}
+			</div>
+		</Section>
+	</section>
+{/if}
 
 <section class="border-t border-white/8 bg-card/40">
 	<Section element="div" class="py-24">

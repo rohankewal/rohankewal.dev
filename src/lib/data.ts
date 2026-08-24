@@ -4,15 +4,19 @@ import runwayImage from '$lib/assets/projects/runway.png';
 import herdrNerdFontImage from '$lib/assets/projects/herdr-nerd-font-tab-name.png';
 import pomImage from '$lib/assets/projects/pom.png';
 
-export const marqueeItems = [
-	'WordPress',
-	'Shopify',
-	'Squarespace',
-	'Svelte',
-	'Node.js',
-	'Figma',
-	'SEO',
-	'Claude'
+export type ToolGroup = {
+	label: string;
+	items: string[];
+};
+
+// The platforms and tools behind the services, grouped by the job they do so
+// the names still say something to someone who doesn't recognise them.
+export const toolGroups: ToolGroup[] = [
+	{ label: 'Sites & stores', items: ['WordPress', 'Shopify', 'Squarespace'] },
+	{ label: 'Custom apps', items: ['Svelte', 'Node.js'] },
+	{ label: 'Design', items: ['Figma'] },
+	{ label: 'Getting found', items: ['SEO'] },
+	{ label: 'Faster delivery', items: ['Claude'] }
 ];
 
 export type ProductHuntBadge = {
