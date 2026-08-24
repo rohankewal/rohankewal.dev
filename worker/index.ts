@@ -11,9 +11,19 @@ const TO = 'rkewalramani4@gmail.com';
 // novel at the inbox.
 const LIMITS = { name: 120, email: 200, budget: 60, timeline: 60, project: 4000 };
 
+// Five attempts per ten minutes. An isolate only ever sees a slice of the
+// traffic, so this is a speed bump rather than a guarantee: enough to stop one
+// client hammering the endpoint, with Turnstile doing the real work.
+const RATE = { limit: 5, windowMs: 10 * 60 * 1000, maxTracked: 5000 };
+
+const attempts = new Map<string, number[]>();
+
 type Env = {
 	ASSETS: { fetch(request: Request): Promise<Response> };
 	CONTACT_EMAIL: { send(message: EmailMessage): Promise<void> };
+	// Set with `wrangler secret put TURNSTILE_SECRET`. Absent means Turnstile is
+	// switched off, which matches an empty site key on the page.
+	TURNSTILE_SECRET?: string;
 };
 
 export default {
@@ -44,6 +54,18 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 	// The honeypot is hidden from people and irresistible to bots. Anything that
 	// fills it gets a success response so the bot has no signal to tune against.
 	if (field(form, 'company')) return reply(wantsJson, 200, '');
+
+	const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+	if (rateLimited(ip)) {
+		return reply(wantsJson, 429, 'That is a lot of messages. Give it a few minutes and try again.');
+	}
+
+	if (env.TURNSTILE_SECRET) {
+		const passed = await verifyChallenge(field(form, 'cf-turnstile-response'), ip, env.TURNSTILE_SECRET);
+		if (!passed) {
+			return reply(wantsJson, 400, 'That did not get past the spam check. Reload the page and try again.');
+		}
+	}
 
 	const name = clamp(field(form, 'name'), LIMITS.name);
 	const email = clamp(field(form, 'email'), LIMITS.email);
@@ -79,6 +101,47 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 	}
 
 	return reply(wantsJson, 200, '');
+}
+
+function rateLimited(ip: string) {
+	const now = Date.now();
+	const recent = (attempts.get(ip) ?? []).filter((at) => now - at < RATE.windowMs);
+
+	recent.push(now);
+	attempts.set(ip, recent);
+
+	// Drop anyone whose window has fully expired rather than growing forever.
+	if (attempts.size > RATE.maxTracked) {
+		for (const [key, times] of attempts) {
+			if (now - times[times.length - 1] >= RATE.windowMs) attempts.delete(key);
+		}
+	}
+
+	return recent.length > RATE.limit;
+}
+
+async function verifyChallenge(token: string, ip: string, secret: string) {
+	if (!token) return false;
+
+	const body = new FormData();
+	body.append('secret', secret);
+	body.append('response', token);
+	if (ip !== 'unknown') body.append('remoteip', ip);
+
+	try {
+		const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+			method: 'POST',
+			body
+		});
+		const result = (await response.json()) as { success?: boolean; 'error-codes'?: string[] };
+
+		if (!result.success) console.warn('turnstile rejected', result['error-codes']);
+		return result.success === true;
+	} catch (error) {
+		// A challenge that cannot be checked is not a challenge that passed.
+		console.error('turnstile verification failed', error);
+		return false;
+	}
 }
 
 function field(form: FormData, key: string) {

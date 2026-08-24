@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import { email, replyTime } from '$lib/site';
+	import { email, replyTime, turnstileSiteKey } from '$lib/site';
 
 	// Posts to the Worker route in worker/index.ts. Submitting with fetch keeps
 	// people on the page, but the plain method="post" action is left intact so
@@ -26,6 +26,57 @@
 	const field =
 		'w-full rounded-xl border border-white/10 bg-card px-4 py-3 text-[15px] text-ink placeholder:text-faint focus:border-accent/60 focus:outline-none';
 	const labelText = 'mb-2 block text-[13px] tracking-[0.06em] text-faint uppercase';
+
+	// A production sitekey is tied to rohankewal.dev, so it refuses to run on
+	// localhost. Cloudflare's always-passes test key works on any host, so local
+	// runs use that and nobody has to edit a key to try the form out. It needs
+	// the matching dummy secret in .dev.vars, which the README covers.
+	const DEV_SITE_KEY = '1x00000000000000000000AA';
+
+	type Turnstile = {
+		render(element: HTMLElement, options: { sitekey: string; theme: string }): string;
+		reset(id?: string): void;
+	};
+
+	let widget: HTMLDivElement | undefined = $state();
+	let widgetId: string | undefined;
+
+	// Rendered explicitly rather than by the script scanning for .cf-turnstile,
+	// because which key to use is only known once the page is in a browser.
+	$effect(() => {
+		if (!turnstileSiteKey || !widget) return;
+
+		const sitekey = ['localhost', '127.0.0.1'].includes(location.hostname)
+			? DEV_SITE_KEY
+			: turnstileSiteKey;
+
+		let cancelled = false;
+
+		// The script is async, so it may not have arrived yet.
+		function render() {
+			if (cancelled) return;
+
+			const api = (window as { turnstile?: Turnstile }).turnstile;
+			if (!api) {
+				setTimeout(render, 100);
+				return;
+			}
+
+			widgetId = api.render(widget!, { sitekey, theme: 'dark' });
+		}
+
+		render();
+
+		return () => {
+			cancelled = true;
+		};
+	});
+
+	// A Turnstile token is good for one submission, so the widget has to be reset
+	// after every attempt or a second try fails with "token already spent".
+	function resetChallenge() {
+		(window as { turnstile?: Turnstile }).turnstile?.reset(widgetId);
+	}
 
 	async function submit(event: SubmitEvent) {
 		event.preventDefault();
@@ -54,8 +105,10 @@
 			}
 
 			form.reset();
+			resetChallenge();
 			status = 'sent';
 		} catch (thrown) {
+			resetChallenge();
 			status = 'error';
 			error =
 				thrown instanceof Error && thrown.message
@@ -64,6 +117,16 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	{#if turnstileSiteKey}
+		<script
+			src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+			async
+			defer
+		></script>
+	{/if}
+</svelte:head>
 
 {#if status === 'sent'}
 	<div class="rounded-[20px] border border-green/30 bg-green/8 p-8">
@@ -136,6 +199,12 @@
 			<label for="company">Company</label>
 			<input id="company" name="company" tabindex="-1" autocomplete="off" />
 		</div>
+
+		{#if turnstileSiteKey}
+			<!-- Managed mode, so most people never see anything to click. The widget
+			     adds the token as a cf-turnstile-response field inside this form. -->
+			<div bind:this={widget}></div>
+		{/if}
 
 		{#if status === 'error'}
 			<p role="alert" class="text-[15px] leading-[1.6] text-accent">{error}</p>
