@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"dev:worker": "npm run build && wrangler dev",
+		"dev:worker:live": "npm run build && wrangler dev --remote",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -22,6 +24,7 @@
 		"svelte-check": "^4.6.0",
 		"tailwindcss": "^4.3.2",
 		"typescript": "^6.0.3",
-		"vite": "^8.0.16"
+		"vite": "^8.0.16",
+		"wrangler": "^4.125.0"
 	}
 }

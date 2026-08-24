@@ -2,9 +2,20 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "rohankewal-dev",
 	"compatibility_date": "2026-08-10",
-	// Static-only site: SvelteKit's adapter-static prerenders every route into
-	// build/, so there is no Worker entrypoint to run.
+	// SvelteKit's adapter-static prerenders every route into build/, so the
+	// Worker below only handles POST /api/contact. Everything else is matched as
+	// a static asset before the Worker is ever invoked.
+	"main": "worker/index.ts",
 	"assets": {
-		"directory": "./build"
-	}
+		"directory": "./build",
+		"binding": "ASSETS"
+	},
+	// Email Routing will only send to an address verified as a destination on
+	// the account, which is all a contact form needs.
+	"send_email": [
+		{
+			"name": "CONTACT_EMAIL",
+			"destination_address": "rkewalramani4@gmail.com"
+		}
+	]
 }

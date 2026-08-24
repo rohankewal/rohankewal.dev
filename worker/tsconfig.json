@@ -1,0 +1,16 @@
+{
+	// The Worker sits outside the SvelteKit program, so it gets its own config.
+	// The DOM lib is standing in for the Workers runtime globals (Request,
+	// Response, FormData, crypto), which are the same shapes here.
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"lib": ["es2022", "dom"],
+		"types": [],
+		"strict": true,
+		"noEmit": true,
+		"skipLibCheck": true
+	},
+	"include": ["**/*.ts"]
+}
