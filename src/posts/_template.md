@@ -18,6 +18,9 @@ in lowercase with hyphens: `why-your-site-is-slow.md` becomes `/blog/why-your-si
   description Google shows under the link.
 - `tags` is optional, a comma-separated list in square brackets.
 - `updated` is optional. Set it if you meaningfully revise a post later.
+- `cta` is optional. It replaces the heading on the call to action at the foot
+  of the post, so a piece about one specific problem can close on that problem
+  instead of the generic line. Leave it out and the default is used.
 - `draft: true` keeps a post out of the index, the sitemap and the feed, and
   out of the production build entirely. Delete the line to publish.
 

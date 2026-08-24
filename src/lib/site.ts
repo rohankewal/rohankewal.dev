@@ -1,6 +1,7 @@
 export const email = 'rkewalramani4@gmail.com';
 export const location = 'New Jersey, USA';
-export const availability = 'Open to work';
+export const availability = 'Available for new projects';
+export const replyTime = 'I reply to every message within 24 hours.';
 
 export const socialLinks: {
 	label: string;

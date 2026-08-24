@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from "$lib/components/Button.svelte";
   import Section from "$lib/components/Section.svelte";
-  import { availability, location } from "$lib/site";
+  import { availability, location, replyTime } from "$lib/site";
 </script>
 
 <Section class="animate-fade-up pt-[min(10vh,90px)] pb-[60px]">
@@ -43,4 +43,6 @@
     <Button href="/contact" label="Get in touch →" />
     <Button href="/projects" label="View my work" variant="secondary" />
   </div>
+
+  <p class="mt-5 text-sm text-faint">{replyTime}</p>
 </Section>

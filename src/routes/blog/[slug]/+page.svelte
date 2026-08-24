@@ -99,7 +99,9 @@
 		{/if}
 	</article>
 
+	<!-- A post about a specific problem can close on that problem, via `cta` in
+	     its frontmatter. Everything else gets the general version. -->
 	<div class="mt-[80px]">
-		<CtaBand heading="Need something like this built?" buttonLabel="Get in touch →" />
+		<CtaBand heading={post.cta ?? 'Need something like this built?'} buttonLabel="Get in touch →" />
 	</div>
 </Section>

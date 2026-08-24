@@ -3,6 +3,7 @@ title: "5 Signs You've Outgrown Squarespace"
 date: 2026-08-24
 description: "Squarespace is a good first website and a bad fifth year. Five signs it's time to move to WordPress — and what a migration actually involves."
 tags: ["WordPress", "Squarespace", "Migration", "SEO", "Small Business"]
+cta: 'Thinking about moving off Squarespace?'
 ---
 
 Squarespace is a good first website. It is a bad fifth year.
