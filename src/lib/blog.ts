@@ -14,6 +14,9 @@ export type Post = {
 	draft: boolean;
 	html: string;
 	readingMinutes: number;
+	excerpt: string; // the opening sentence, as written in the post
+	preview: string; // a little of what follows it, cut short
+	cta?: string; // overrides the closing call to action for this post
 };
 
 export type PostSummary = Omit<Post, 'html'>;
@@ -76,6 +79,35 @@ function estimateReadingMinutes(body: string) {
 	return Math.max(1, Math.round(words / 200));
 }
 
+// The body with its markdown syntax taken out, so a card can show the start of
+// a post as plain prose without any markup leaking through.
+function toPlainText(body: string) {
+	return body
+		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+		.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+		.replace(/^\s{0,3}(?:#{1,6}|>|[-*+]|\d+\.)\s+/gm, '')
+		.replace(/[*_`~]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function truncate(text: string, limit: number) {
+	if (text.length <= limit) return text;
+	const cut = text.slice(0, limit);
+	const lastSpace = cut.lastIndexOf(' ');
+	return `${(lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`;
+}
+
+// First sentence, then a trimmed run of what comes after it.
+function openingOf(body: string) {
+	const text = toPlainText(body);
+	const sentence = /^.*?[.!?](?=\s|$)/.exec(text);
+	const excerpt = sentence ? sentence[0] : truncate(text, 160);
+
+	return { excerpt, preview: truncate(text.slice(excerpt.length).trim(), 150) };
+}
+
 function slugFromPath(path: string) {
 	return path.split('/').pop()!.replace(/\.md$/, '');
 }
@@ -104,8 +136,10 @@ const all: Post[] = Object.entries(files)
 			updated: asString(data.updated) || undefined,
 			tags: Array.isArray(data.tags) ? data.tags : [],
 			draft: asString(data.draft) === 'true',
+			cta: asString(data.cta) || undefined,
 			html: marked.parse(body) as string,
-			readingMinutes: estimateReadingMinutes(body)
+			readingMinutes: estimateReadingMinutes(body),
+			...openingOf(body)
 		};
 	})
 	// Newest first. Back-dated posts slot into place automatically.
