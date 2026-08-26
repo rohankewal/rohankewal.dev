@@ -13,7 +13,8 @@
 	path="/blog"
 />
 
-<Section class="animate-fade-up pt-5 pb-[100px]">
+<!-- The index gets the wide container so three cards have room to breathe. -->
+<Section width="wide" class="animate-fade-up pt-5 pb-[100px]">
 	<PageHeader
 		eyebrow="Writing"
 		title="Notes on building for"
@@ -22,7 +23,7 @@
 	/>
 
 	{#if postSummaries.length}
-		<div class="max-w-[820px]">
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each postSummaries as post (post.slug)}
 				<PostCard {post} />
 			{/each}
