@@ -2,7 +2,7 @@ import { siteUrl } from '$lib/seo';
 
 export const prerender = true;
 
-const staticRoutes = ['', '/projects', '/expertise', '/faq', '/contact'];
+const staticRoutes = ['', '/projects', '/expertise', '/wallpapers', '/faq', '/contact'];
 
 export const GET = async () => {
 	const body = `<?xml version="1.0" encoding="UTF-8"?>

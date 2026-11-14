@@ -3,6 +3,10 @@ import premierMedicalCentreImage from '$lib/assets/projects/premier-medical-cent
 import runwayImage from '$lib/assets/projects/runway.png';
 import herdrNerdFontImage from '$lib/assets/projects/herdr-nerd-font-tab-name.png';
 import pomImage from '$lib/assets/projects/pom.png';
+import glassFluxImage from '$lib/assets/wallpapers/glass-flux.jpg';
+import glassFluxSamplerImage from '$lib/assets/wallpapers/glass-flux-sampler.jpg';
+import notebookFoldImage from '$lib/assets/wallpapers/notebook-fold.jpg';
+import notebookFoldFreeImage from '$lib/assets/wallpapers/notebook-fold-free.jpg';
 
 export type ToolGroup = {
 	label: string;
@@ -145,6 +149,11 @@ const icons = {
 		'<path d="M20.5 11A8.5 8.5 0 0 0 6.3 5.7L3 9"/><path d="M3 4v5h5"/><path d="M3.5 13A8.5 8.5 0 0 0 17.7 18.3L21 15"/><path d="M21 20v-5h-5"/>',
 	bag: '<path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',
 	code: '<path d="M9 7l-5 5 5 5"/><path d="M15 7l5 5-5 5"/>',
+	frames:
+		'<rect x="3" y="6" width="9" height="12" rx="1.6"/><rect x="14.5" y="8.5" width="6.5" height="7" rx="1.2"/>',
+	download: '<path d="M12 4v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 20h16"/>',
+	gift:
+		'<rect x="3.5" y="9" width="17" height="11" rx="1.8"/><path d="M3.5 13h17"/><path d="M12 9v11"/><path d="M12 9S9.8 4.5 7.8 5.3 8.5 9 12 9Z"/><path d="M12 9s2.2-4.5 4.2-3.7S15.5 9 12 9Z"/>',
 	search: '<circle cx="11" cy="11" r="7"/><path d="M16.2 16.2 21 21"/>',
 	shield: '<path d="M12 21s-7-4.2-7-10V6.2L12 3l7 3.2V11c0 5.8-7 10-7 10Z"/><path d="M9.3 12l1.9 2 3.5-4"/>',
 	layers: '<path d="M12 3 3 7.5l9 4.5 9-4.5L12 3Z"/><path d="M3 12.5 12 17l9-4.5"/>',
@@ -332,5 +341,123 @@ export const faqs: Faq[] = [
 	{
 		q: 'What do you need from me to get started?',
 		a: 'A rough idea of what you need, roughly when you need it, and a budget range if you have one. That is enough for me to come back with something useful instead of more questions.'
+	}
+];
+
+/* ---------------------------------------------------------------------------
+   Paired Light
+   ---------------------------------------------------------------------------
+   The wallpaper store. Everything sells through Gumroad, so this file only
+   describes the packs and links out — there is no cart or checkout here.
+
+   Prices and counts below mirror the Gumroad listings. If a pack changes
+   price or gains designs there, change it here too, because nothing fetches
+   it at build time.
+
+   The store's own name, URL and tagline live in site.ts, next to the other
+   site-level constants, because seo.ts needs the URL too.
+--------------------------------------------------------------------------- */
+
+// `url` below is the plain product page. Every buy button runs it through
+// this first, because Gumroad skips the product page and opens its checkout
+// with the item already in the cart when the link carries `?wanted=true`.
+//
+// Pay-what-you-want products ignore it: Gumroad has to collect a price before
+// it can check anyone out, so the two free downloads land on the product page
+// and its "name a fair price" form either way. Harmless there, so the buttons
+// are all built the same way rather than splitting into two rules.
+export function checkoutUrl(productUrl: string) {
+	return `${productUrl}${productUrl.includes('?') ? '&' : '?'}wanted=true`;
+}
+
+export type WallpaperFreebie = {
+	name: string;
+	blurb: string;
+	image: string;
+	imageAlt: string;
+	url: string;
+};
+
+export type WallpaperPack = {
+	slug: string;
+	name: string;
+	tag: string;
+	image: string;
+	imageAlt: string;
+	summary: string;
+	price: string;
+	specs: string[];
+	url: string;
+	freebie: WallpaperFreebie;
+};
+
+export const wallpaperPacks: WallpaperPack[] = [
+	{
+		slug: 'glass-flux',
+		name: 'Glass Flux',
+		tag: 'Abstract · Dark',
+		image: glassFluxImage,
+		imageAlt:
+			'Glass Flux wallpaper shown on a laptop and an iPhone, a glassy blue and pink ribbon curving across a near-black background',
+		summary:
+			'Twenty four abstract designs in deep, dark tones, split across four series: Silk, Glass, Flow and Dunes. Each one comes as a phone wallpaper and a 5K desktop wallpaper.',
+		price: '$7',
+		specs: ['24 designs', '5K desktop', 'Phone + desktop'],
+		url: 'https://pairedlight.gumroad.com/l/glassflux-wallpapers',
+		freebie: {
+			name: 'Free Glass Flux sampler',
+			blurb:
+				'Three of the twenty four designs, Velvet Dusk, Rosé Glass and Neon Drift, in the same full quality files as the paid pack.',
+			image: glassFluxSamplerImage,
+			imageAlt:
+				'Glass Flux free sampler cover showing the Velvet Dusk, Rosé Glass and Neon Drift designs on laptop and phone mockups',
+			url: 'https://pairedlight.gumroad.com/l/glassflux-sampler'
+		}
+	},
+	{
+		slug: 'notebook-fold',
+		name: 'Notebook Fold',
+		tag: 'Foldables · Clothbound',
+		image: notebookFoldImage,
+		imageAlt:
+			'Notebook Fold wallpaper on a folding phone, a green clothbound notebook cover on the outer screen continuing across the open inner screen',
+		summary:
+			'Clothbound notebook covers for folding phones, in eight colors. Every color is sized for the cover screen and the inner screen, so the phone reads as one notebook whether it is shut or open.',
+		price: '$5',
+		specs: ['8 colors', 'Cover + inner screen', 'Built for foldables'],
+		url: 'https://pairedlight.gumroad.com/l/notebook-fold',
+		freebie: {
+			name: 'Free Notebook Fold: Forest Green',
+			blurb:
+				'The Forest Green cover on its own, so you can see how one of these sits on your phone before paying for the other seven.',
+			image: notebookFoldFreeImage,
+			imageAlt:
+				'Notebook Fold Forest Green wallpaper shown on a folding phone, closed and open',
+			url: 'https://pairedlight.gumroad.com/l/notebook-fold-free'
+		}
+	}
+];
+
+export type StoreNote = {
+	icon: string;
+	title: string;
+	desc: string;
+};
+
+export const storeNotes: StoreNote[] = [
+	{
+		icon: icons.frames,
+		title: 'Composed, not cropped',
+		desc: 'Each design is laid out again for every screen it ships for, rather than one image resized down and cut to fit.'
+	},
+	{
+		icon: icons.download,
+		title: 'Instant download',
+		desc: 'Checkout is handled by Gumroad. Pay and the ZIP downloads straight away.'
+	},
+	{
+		icon: icons.gift,
+		title: 'Free before paid',
+		desc: 'Both packs have a free download, so you can put the files on your own phone before deciding whether the rest is worth it.'
 	}
 ];

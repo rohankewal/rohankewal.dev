@@ -1,4 +1,4 @@
-import { socialLinks } from '$lib/site';
+import { socialLinks, storeUrl } from '$lib/site';
 
 export const siteUrl = 'https://rohankewal.dev';
 export const siteName = 'Rohan Kewalramani';
@@ -21,7 +21,9 @@ export const personSchema = {
 				addressRegion: 'NJ',
 				addressCountry: 'US'
 			},
-			sameAs: socialLinks.map((link) => link.url),
+			// The Gumroad store is another profile that is unambiguously him, which
+			// is exactly what `sameAs` is for.
+			sameAs: [...socialLinks.map((link) => link.url), storeUrl],
 			knowsAbout: [
 				'WordPress Development',
 				'Shopify Development',

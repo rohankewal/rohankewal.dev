@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { projects, pricingTiers, services, toolGroups } from '$lib/data';
+	import { projects, pricingTiers, services, toolGroups, wallpaperPacks } from '$lib/data';
 	import ArrowLink from '$lib/components/ArrowLink.svelte';
 	import CtaBand from '$lib/components/CtaBand.svelte';
 	import Hero from '$lib/components/Hero.svelte';
@@ -9,6 +9,7 @@
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import Seo from '$lib/components/Seo.svelte';
+	import WallpaperCard from '$lib/components/WallpaperCard.svelte';
 
 	// One vertical rhythm for every band on the page, so the hairlines between
 	// them land at even intervals as you scroll.
@@ -106,6 +107,27 @@
 	</Section>
 </section>
 
-<Section class="pt-[clamp(64px,8vw,104px)] pb-[clamp(72px,9vw,120px)]">
+<!-- Not client work, so it sits after the pricing band rather than among the
+     projects, and keeps its own quieter framing. -->
+<Section class={sectionPadding}>
+	<SectionHeading
+		eyebrow="On the side"
+		title="I also make wallpapers"
+		lead="Paired Light is a small store of mine. Every design is composed twice, once for phone and once for desktop, so neither one is a crop of the other. Both packs have a free download."
+		class="mb-11"
+	>
+		{#snippet action()}
+			<ArrowLink href="/wallpapers" label="See the packs" />
+		{/snippet}
+	</SectionHeading>
+
+	<div class="grid gap-4 sm:grid-cols-2">
+		{#each wallpaperPacks as pack (pack.slug)}
+			<WallpaperCard {pack} />
+		{/each}
+	</div>
+</Section>
+
+<Section class="pb-[clamp(72px,9vw,120px)]">
 	<CtaBand heading="Got a project worth building well?" large />
 </Section>

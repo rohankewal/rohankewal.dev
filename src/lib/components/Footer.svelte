@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { availability, email, location, socialLinks } from '$lib/site';
+	import { availability, email, location, socialLinks, storeName, storeUrl } from '$lib/site';
 </script>
 
 <footer class="mt-auto border-t border-line">
@@ -43,6 +43,17 @@
 						{link.label} <span aria-hidden="true" class="text-faint">↗</span>
 					</a>
 				{/each}
+
+				<!-- Last in the list because it is the only one that is a shop
+				     rather than a profile. -->
+				<a
+					href={storeUrl}
+					target="_blank"
+					rel="noreferrer"
+					class="text-[13.5px] text-muted transition-colors duration-150 hover:text-ink"
+				>
+					{storeName} <span aria-hidden="true" class="text-faint">↗</span>
+				</a>
 			</nav>
 		</div>
 

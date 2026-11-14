@@ -4,11 +4,24 @@
 
 	// The closing panel on most pages. A bordered surface rather than a saturated
 	// block, so it reads as the end of the page instead of competing with it.
+	//
+	// Defaults point at the contact page, which is where all but one of these
+	// send you. The wallpapers page overrides them to send you to the store.
 	let {
 		heading,
+		body = replyTime,
+		href = '/contact',
 		buttonLabel = "Let's talk",
+		external = false,
 		large = false
-	}: { heading: string; buttonLabel?: string; large?: boolean } = $props();
+	}: {
+		heading: string;
+		body?: string;
+		href?: string;
+		buttonLabel?: string;
+		external?: boolean;
+		large?: boolean;
+	} = $props();
 </script>
 
 <div
@@ -24,8 +37,8 @@
 		>
 			{heading}
 		</h2>
-		<p class="mt-3 text-[15px] leading-[1.6] text-muted">{replyTime}</p>
+		<p class="mt-3 text-[15px] leading-[1.6] text-muted">{body}</p>
 	</div>
 
-	<Button href="/contact" label={buttonLabel} size={large ? 'lg' : 'md'} arrow />
+	<Button {href} label={buttonLabel} size={large ? 'lg' : 'md'} {external} arrow />
 </div>
