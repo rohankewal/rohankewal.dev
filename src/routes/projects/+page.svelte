@@ -15,40 +15,38 @@
 	path="/projects"
 />
 
-<!-- The case-study grid gets the wide container so three cards have room to
-     breathe; everything below it stays on the site's standard width. -->
-<Section width="wide" class="animate-fade-up pt-5">
+<Section class="animate-fade-up pt-[clamp(48px,7vh,80px)] pb-[clamp(64px,8vw,96px)]">
 	<PageHeader
 		eyebrow="Freelance work"
-		title="Selected"
-		accent="projects"
-		lead="A mix of client platforms and full‑stack builds — from freelance WordPress work to a SaaS product I built solo end to end."
+		title="Selected projects"
+		lead="A mix of client platforms and full-stack builds — from freelance WordPress work to a SaaS product I built solo end to end."
+		class="mb-12"
 	/>
 
-	<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+	<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 		{#each projects as project (project.slug)}
 			<ProjectCaseStudy {project} />
 		{/each}
 	</div>
 </Section>
 
-<Section class="animate-fade-up pt-[70px] pb-[100px]">
-	<SectionHeading
-		eyebrow="Open source"
-		title="Things I build for"
-		accent="myself"
-		lead="Smaller tools I've written to scratch my own itch, and released for anyone else who has it too."
-		size="md"
-		class="mb-8 max-w-[640px]"
-	/>
+<section class="band">
+	<Section element="div" class="py-[clamp(64px,8vw,104px)]">
+		<SectionHeading
+			eyebrow="Open source"
+			title="Things I build for myself"
+			lead="Smaller tools I've written to scratch my own itch, and released for anyone else who has it too."
+			class="mb-11"
+		/>
 
-	<div class="grid gap-6 sm:grid-cols-2">
-		{#each openSourceProjects as project (project.slug)}
-			<OpenSourceCard {project} />
-		{/each}
-	</div>
+		<div class="grid gap-4 sm:grid-cols-2">
+			{#each openSourceProjects as project (project.slug)}
+				<OpenSourceCard {project} />
+			{/each}
+		</div>
+	</Section>
+</section>
 
-	<div class="mt-[70px]">
-		<CtaBand heading="Want to be the next one?" buttonLabel="Start a project →" />
-	</div>
+<Section class="py-[clamp(64px,8vw,104px)]">
+	<CtaBand heading="Want to be the next one?" buttonLabel="Start a project" />
 </Section>

@@ -5,7 +5,8 @@
 		href,
 		label,
 		variant = 'primary',
-		size = 'lg',
+		size = 'md',
+		arrow = false,
 		external = false,
 		type = 'button',
 		disabled = false,
@@ -13,31 +14,46 @@
 	}: {
 		href?: string;
 		label: string;
-		variant?: 'primary' | 'secondary' | 'onFill';
+		variant?: 'primary' | 'secondary' | 'ghost';
 		size?: 'sm' | 'md' | 'lg';
+		/** Adds a trailing arrow that slides on hover. */
+		arrow?: boolean;
 		external?: boolean;
 		type?: 'button' | 'submit';
 		disabled?: boolean;
 		class?: string;
 	} = $props();
 
+	// `primary` is the ink/paper inversion, so it reads as the strongest thing on
+	// the page in either scheme without needing a brand colour.
 	const variants = {
-		primary: 'bg-accent font-semibold text-bg!',
-		secondary: 'border border-white/18 font-medium text-ink!',
-		// For use on top of a saturated filled surface, where `primary` would vanish.
-		onFill: 'bg-bg font-semibold text-ink!'
+		primary: 'bg-ink text-bg hover:opacity-85',
+		secondary: 'border border-line-strong text-ink hover:bg-bg-subtle',
+		ghost: 'text-muted hover:text-ink hover:bg-bg-subtle'
 	};
 
 	const sizes = {
-		sm: 'px-[22px] py-3 text-sm',
-		md: 'px-7 py-3.5 text-[15px]',
-		lg: 'px-[30px] py-4 text-[15px]'
+		sm: 'px-3.5 py-2 text-[13.5px]',
+		md: 'px-4.5 py-2.5 text-[14px]',
+		lg: 'px-5.5 py-3 text-[14.5px]'
 	};
 
 	let classes = $derived(
-		`w-fit rounded-full whitespace-nowrap transition-transform duration-200 hover:scale-105 ${variants[variant]} ${sizes[size]} ${className}`
+		`group inline-flex w-fit items-center gap-1.5 rounded-field font-medium whitespace-nowrap transition-[opacity,background-color,border-color] duration-150 ${variants[variant]} ${sizes[size]} ${className}`
 	);
 </script>
+
+{#snippet content()}
+	{label}
+	{#if arrow}
+		<span
+			aria-hidden="true"
+			class="transition-transform duration-200 group-hover:translate-x-0.5"
+		>
+			{external ? '↗' : '→'}
+		</span>
+	{/if}
+{/snippet}
 
 {#if href}
 	<a
@@ -46,14 +62,10 @@
 		rel={external ? 'noreferrer' : undefined}
 		class={classes}
 	>
-		{label}
+		{@render content()}
 	</a>
 {:else}
-	<button
-		{type}
-		{disabled}
-		class="{classes} disabled:pointer-events-none disabled:opacity-55"
-	>
-		{label}
+	<button {type} {disabled} class="{classes} disabled:pointer-events-none disabled:opacity-50">
+		{@render content()}
 	</button>
 {/if}

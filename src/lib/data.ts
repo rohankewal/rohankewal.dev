@@ -135,8 +135,29 @@ export const openSourceProjects: OpenSourceProject[] = [
 	}
 ];
 
+// Inner markup for a 24px line icon, rendered by Icon.svelte. Held as path data
+// rather than as components so a service or skill stays one object in one list,
+// and so there is no icon dependency to keep up to date.
+const icons = {
+	globe:
+		'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18"/><path d="M12 3c-2.6 2.7-2.6 15.3 0 18"/>',
+	refresh:
+		'<path d="M20.5 11A8.5 8.5 0 0 0 6.3 5.7L3 9"/><path d="M3 4v5h5"/><path d="M3.5 13A8.5 8.5 0 0 0 17.7 18.3L21 15"/><path d="M21 20v-5h-5"/>',
+	bag: '<path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',
+	code: '<path d="M9 7l-5 5 5 5"/><path d="M15 7l5 5-5 5"/>',
+	search: '<circle cx="11" cy="11" r="7"/><path d="M16.2 16.2 21 21"/>',
+	shield: '<path d="M12 21s-7-4.2-7-10V6.2L12 3l7 3.2V11c0 5.8-7 10-7 10Z"/><path d="M9.3 12l1.9 2 3.5-4"/>',
+	layers: '<path d="M12 3 3 7.5l9 4.5 9-4.5L12 3Z"/><path d="M3 12.5 12 17l9-4.5"/>',
+	server:
+		'<rect x="3" y="4" width="18" height="6.5" rx="2"/><rect x="3" y="13.5" width="18" height="6.5" rx="2"/><path d="M7 7.2h.01"/><path d="M7 16.8h.01"/>',
+	sparkle:
+		'<path d="M11 3.5 12.7 8 17.2 9.7 12.7 11.4 11 15.9 9.3 11.4 4.8 9.7 9.3 8 11 3.5Z"/><path d="M18 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z"/>',
+	pen: '<path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1.5L4.5 16 16.5 3.5Z"/><path d="M15 5.2 17.8 8"/>',
+	trend: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>'
+};
+
 export type SkillGroup = {
-	mark: string;
+	icon: string;
 	title: string;
 	desc: string;
 	tags: string[];
@@ -144,31 +165,31 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
 	{
-		mark: 'P',
+		icon: icons.layers,
 		title: 'Platforms & CMS',
 		desc: 'Freelance WordPress development, plus custom builds and theming on Shopify and Squarespace — the platforms small businesses actually run on.',
 		tags: ['WordPress', 'Shopify', 'Squarespace']
 	},
 	{
-		mark: 'F',
+		icon: icons.server,
 		title: 'Full-Stack Dev',
 		desc: 'Product-grade apps when off-the-shelf platforms hit their limits.',
 		tags: ['Svelte', 'Node.js']
 	},
 	{
-		mark: 'A',
+		icon: icons.sparkle,
 		title: 'AI-Assisted Workflows',
 		desc: 'Using Claude to move faster on content, code, and support without cutting quality.',
 		tags: ['Claude']
 	},
 	{
-		mark: 'D',
+		icon: icons.pen,
 		title: 'Design',
 		desc: 'Interfaces and layouts designed before a line of code is written.',
 		tags: ['Figma']
 	},
 	{
-		mark: 'G',
+		icon: icons.trend,
 		title: 'Growth',
 		desc: 'Sites built to actually get found — structure, speed, and on-page SEO.',
 		tags: ['SEO']
@@ -176,39 +197,39 @@ export const skillGroups: SkillGroup[] = [
 ];
 
 export type Service = {
-	mark: string;
+	icon: string;
 	title: string;
 	desc: string;
 };
 
 export const services: Service[] = [
 	{
-		mark: 'W',
+		icon: icons.globe,
 		title: 'A website that brings in work',
 		desc: 'A custom site that explains what you do and makes it easy to get in touch. Fast on phones, built on WordPress or Squarespace, and set up so you can edit the copy yourself.'
 	},
 	{
-		mark: 'R',
+		icon: icons.refresh,
 		title: 'A redesign of the site you have',
 		desc: "Your business moved on and the site didn't. I rebuild the design and structure and fix what's slow, while keeping the pages search engines already know about."
 	},
 	{
-		mark: 'S',
+		icon: icons.bag,
 		title: 'An online store',
 		desc: 'Shopify builds and custom theming for selling products. Clear product pages, a checkout that stays out of the way, and a store you can run day to day without calling a developer.'
 	},
 	{
-		mark: 'A',
+		icon: icons.code,
 		title: 'A custom app or tool',
 		desc: 'When a website is not enough and off the shelf software does not fit, I build the product itself in Svelte and Node. Designed and shipped end to end, the same way I built Runway.'
 	},
 	{
-		mark: 'F',
+		icon: icons.search,
 		title: 'Getting found in search',
 		desc: 'On page SEO, site structure, and page speed so the right people actually land on you. Part of every build, and available on its own for a site that already exists.'
 	},
 	{
-		mark: 'C',
+		icon: icons.shield,
 		title: 'Ongoing care after launch',
 		desc: 'Someone to email when something breaks or you need a new page. Updates, fixes, small features, and a developer who already knows how your site is put together.'
 	}
@@ -232,7 +253,7 @@ export const pricingTiers: PricingTier[] = [
 		timeline: '1–2 weeks',
 		features: ['Custom design, not a stock template', 'Fast and mobile-friendly', 'SEO basics covered'],
 		featured: false,
-		cta: 'Start a project →'
+		cta: 'Start a project'
 	},
 	{
 		name: 'Advanced',
@@ -241,7 +262,7 @@ export const pricingTiers: PricingTier[] = [
 		timeline: '4+ weeks',
 		features: ['Everything in Simple', 'Custom features and integrations'],
 		featured: true,
-		cta: "Let's scope it →"
+		cta: "Let's scope it"
 	}
 ];
 
@@ -256,4 +277,60 @@ export const processSteps: ProcessStep[] = [
 	{ n: '02', title: 'Design', desc: 'Wireframe and design the flows before touching code.' },
 	{ n: '03', title: 'Build', desc: 'Ship a fast, clean, maintainable implementation.' },
 	{ n: '04', title: 'Support', desc: 'Stick around for updates, fixes, and the next iteration.' }
+];
+
+export type Faq = {
+	q: string;
+	a: string;
+};
+
+// Ordered the way a prospective client works through them: what it costs and
+// how long it takes first, then what they end up owning, then the longer-term
+// questions. Every answer here is a policy or a fact about how I work, so each
+// one has to stay true as the business changes.
+export const faqs: Faq[] = [
+	{
+		q: 'What does a project cost?',
+		a: 'Simple sites start at $800 and usually take one to two weeks. More involved builds start at $1,500 and run from four weeks. Those are starting points rather than fixed prices, and I quote properly once I know the scope. Send me what you are trying to build and I will tell you straight, including if it is smaller than you think.'
+	},
+	{
+		q: 'How long does it take?',
+		a: 'A simple site is usually one to two weeks. Bigger builds run from four weeks. Those timelines assume content and feedback come back as we go, so the fastest projects are the ones where that part is ready.'
+	},
+	{
+		q: 'How do payments work?',
+		a: 'Half upfront to get started, half before the site goes live. You get an invoice for each, and we agree the total before any work begins.'
+	},
+	{
+		q: 'Who owns the site when it is finished?',
+		a: 'You do. The site, the code, and the accounts are yours once the final invoice is paid. Nothing is held back, and you are not locked into working with me to keep it running.'
+	},
+	{
+		q: 'Do you handle hosting and the domain?',
+		a: 'I set both up and configure them. The accounts go in your name and you pay the provider directly, so you own them and can move them whenever you want.'
+	},
+	{
+		q: 'Can I edit the site myself afterwards?',
+		a: 'Yes. I set sites up so you can change copy, images, and pages without calling a developer, and I walk you through how it works before we finish.'
+	},
+	{
+		q: 'What happens after launch?',
+		a: 'Whichever suits you. Some clients keep me on a monthly retainer that covers updates, fixes, and small changes. Others email when something comes up and I bill it then. You can start with one and switch later.'
+	},
+	{
+		q: 'Will a redesign hurt my search rankings?',
+		a: 'That is the part I am most careful about on a redesign. I keep the pages search engines already know about and map anything that has to move, so the rankings you have now carry across.'
+	},
+	{
+		q: 'Do you do SEO on its own?',
+		a: 'Yes. On page SEO, site structure, and page speed are part of every build, and I also take them on for a site that already exists.'
+	},
+	{
+		q: 'Do you work with clients outside New Jersey?',
+		a: 'Yes. I am based in New Jersey and work remotely. Two of the projects on this site are for clients in London.'
+	},
+	{
+		q: 'What do you need from me to get started?',
+		a: 'A rough idea of what you need, roughly when you need it, and a budget range if you have one. That is enough for me to come back with something useful instead of more questions.'
+	}
 ];

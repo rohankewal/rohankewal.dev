@@ -1,38 +1,41 @@
 <script lang="ts">
-  // Top-of-page heading: eyebrow, an <h1> whose last words are accented, and a lead paragraph.
-  // `size` picks the display scale — 'md' for inner pages, 'lg' for the contact page.
-  let {
-    eyebrow,
-    title,
-    accent,
-    lead,
-    size = "md",
-  }: {
-    eyebrow: string;
-    title: string;
-    accent: string;
-    lead?: string;
-    size?: "md" | "lg";
-  } = $props();
+	// Top-of-page heading: a mono label, the <h1>, and a lead paragraph.
+	// Display sizes stay deliberately moderate — the hierarchy comes from weight,
+	// colour and tracking rather than from scale.
+	let {
+		eyebrow,
+		title,
+		lead,
+		size = 'md',
+		class: className = ''
+	}: {
+		eyebrow?: string;
+		title: string;
+		lead?: string;
+		size?: 'md' | 'lg';
+		class?: string;
+	} = $props();
 
-  const titleSizes = {
-    md: "mt-2 mb-5 text-[clamp(40px,6vw,72px)]",
-    lg: "mt-2 mb-6 text-[clamp(40px,7vw,88px)] leading-[1.02]",
-  };
-
-  const leadSizes = {
-    md: "mb-14 max-w-[640px]",
-    lg: "mb-11 max-w-[560px]",
-  };
+	const titleSizes = {
+		md: 'text-[clamp(32px,4.4vw,46px)]',
+		lg: 'text-[clamp(34px,5vw,54px)]'
+	};
 </script>
 
-<span class="text-sm tracking-[0.08em] text-accent uppercase">{eyebrow}</span>
+<div class={className}>
+	{#if eyebrow}
+		<span class="label">{eyebrow}</span>
+	{/if}
 
-<h1 class="font-serif font-normal text-ink {titleSizes[size]}">
-  {title}
-  <span class="text-accent italic">{accent}</span>
-</h1>
+	<h1
+		class="font-medium tracking-display text-ink {titleSizes[size]} leading-[1.08] {eyebrow
+			? 'mt-3.5'
+			: ''}"
+	>
+		{title}
+	</h1>
 
-{#if lead}
-  <p class="text-lg leading-[1.6] text-muted {leadSizes[size]}">{lead}</p>
-{/if}
+	{#if lead}
+		<p class="mt-5 max-w-[620px] text-[17px] leading-[1.65] text-muted">{lead}</p>
+	{/if}
+</div>

@@ -15,29 +15,38 @@
 	path="/expertise"
 />
 
-<Section class="animate-fade-up pt-5 pb-[100px]">
+<Section class="animate-fade-up pt-[clamp(48px,7vh,80px)] pb-[clamp(64px,8vw,96px)]">
 	<PageHeader
 		eyebrow="Expertise"
-		title="What I"
-		accent="do"
-		lead="From platform builds to full‑stack apps — end to end, with the design and SEO chops to make it perform."
+		title="What I do"
+		lead="From platform builds to full-stack apps — end to end, with the design and SEO chops to make it perform."
+		class="mb-12"
 	/>
 
-	<div class="mb-[70px] grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+	<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 		{#each skillGroups as group (group.title)}
 			<SkillCard {group} />
 		{/each}
 	</div>
+</Section>
 
-	<SectionHeading title="How a project" accent="runs" size="sm" class="mb-8" />
+<section class="band">
+	<Section element="div" class="py-[clamp(64px,8vw,104px)]">
+		<SectionHeading
+			eyebrow="Process"
+			title="How a project runs"
+			lead="The same four steps on every build, whether it's a landing page or a product."
+			class="mb-11"
+		/>
 
-	<div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
-		{#each processSteps as step (step.n)}
-			<ProcessStepCard {step} />
-		{/each}
-	</div>
+		<div class="grid gap-x-6 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
+			{#each processSteps as step (step.n)}
+				<ProcessStepCard {step} />
+			{/each}
+		</div>
+	</Section>
+</section>
 
-	<div class="mt-[70px]">
-		<CtaBand heading="Need one of these, built right?" />
-	</div>
+<Section class="py-[clamp(64px,8vw,104px)]">
+	<CtaBand heading="Need one of these, built right?" />
 </Section>

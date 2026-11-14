@@ -6,35 +6,54 @@
 </script>
 
 <div
-	class="flex flex-col rounded-[20px] border p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 {tier.featured
-		? 'border-accent/50 bg-gradient-to-br from-surface to-card hover:border-accent/80'
-		: 'border-white/10 bg-card hover:border-accent/55'}"
+	class="card relative flex flex-col p-8 {tier.featured ? 'border-line-strong shadow-card-hover' : ''}"
 >
-	<h3 class="mb-4 font-serif text-[28px] font-normal text-ink">{tier.name}</h3>
+	{#if tier.featured}
+		<span
+			class="label absolute top-8 right-8 rounded-full border border-line bg-bg-subtle px-2.5 py-1 text-ink"
+		>
+			Most common
+		</span>
+	{/if}
 
-	<div class="mb-1 font-serif text-[clamp(38px,5vw,52px)] leading-none text-ink">
-		{tier.price}
+	<h3 class="text-[15px] font-medium tracking-heading text-ink">{tier.name}</h3>
+
+	<div class="mt-5 flex items-baseline gap-2">
+		<span class="text-[clamp(32px,4vw,40px)] font-medium tracking-display text-ink">
+			{tier.price}
+		</span>
+		<span class="text-[13.5px] text-faint">· {tier.timeline}</span>
 	</div>
-	<div class="mb-5 text-[13px] tracking-[0.06em] text-faint uppercase">
-		Typically {tier.timeline}
-	</div>
 
-	<p class="mb-6 text-[15px] leading-[1.6] text-muted">{tier.tagline}</p>
+	<p class="mt-4 text-[14.5px] leading-[1.65] text-muted">{tier.tagline}</p>
 
-	<ul class="mb-8 flex flex-col gap-3">
+	<ul class="mt-7 flex flex-col gap-3 border-t border-line pt-7 pb-8">
 		{#each tier.features as feature (feature)}
-			<li class="flex gap-3 text-[15px] leading-[1.5] text-soft">
-				<span aria-hidden="true" class="mt-0.5 text-accent">→</span>
+			<li class="flex gap-2.5 text-[14.5px] leading-[1.5] text-body">
+				<svg
+					class="mt-[3px] size-[15px] shrink-0 text-accent"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M5 12.5l4.5 4.5L19 7" />
+				</svg>
 				<span>{feature}</span>
 			</li>
 		{/each}
 	</ul>
 
+	<!-- `mt-auto` so both tiers' buttons sit on the same line even though one
+	     lists more features than the other. -->
 	<Button
 		href="/contact"
 		label={tier.cta}
 		variant={tier.featured ? 'primary' : 'secondary'}
-		size="md"
-		class="mt-auto"
+		arrow
+		class="mt-auto w-full justify-center"
 	/>
 </div>

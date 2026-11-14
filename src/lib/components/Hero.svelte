@@ -1,48 +1,43 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte";
-  import Section from "$lib/components/Section.svelte";
-  import { availability, location, replyTime } from "$lib/site";
+	import Button from '$lib/components/Button.svelte';
+	import Section from '$lib/components/Section.svelte';
+	import { availability, location, replyTime } from '$lib/site';
 </script>
 
-<Section class="animate-fade-up pt-[min(10vh,90px)] pb-[60px]">
-  <div class="mb-7 flex flex-wrap items-center gap-3.5">
-    <div
-      class="flex items-center gap-2 rounded-full border border-green/30 bg-green/12 py-2 pr-4 pl-3"
-    >
-      <span class="animate-pulse-dot h-[9px] w-[9px] rounded-full bg-green"
-      ></span>
-      <span class="text-[13px] font-bold tracking-[0.08em] text-green uppercase"
-        >{availability}</span
-      >
-    </div>
-    <span class="text-sm tracking-wide text-muted">📍 Based in {location}</span>
-  </div>
+<Section class="animate-fade-up pt-[clamp(56px,9vh,96px)] pb-[clamp(60px,8vw,92px)]">
+	<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+		<span
+			class="inline-flex items-center gap-2 rounded-full border border-line bg-bg-subtle py-1.5 pr-3 pl-2.5 text-[12.5px] font-medium text-body"
+		>
+			<span
+				aria-hidden="true"
+				class="animate-pulse-dot size-[7px] rounded-full bg-success"
+			></span>
+			{availability}
+		</span>
+		<span class="text-[13px] text-faint">{location}</span>
+	</div>
 
-  <h1
-    class="mb-2 font-serif text-[clamp(48px,8vw,104px)] leading-[0.98] font-normal text-ink"
-  >
-    Rohan <span class="text-accent italic">Kewalramani</span>
-  </h1>
+	<h1
+		class="mt-7 text-[clamp(38px,6vw,58px)] leading-[1.04] font-medium tracking-display text-ink"
+	>
+		Rohan Kewalramani
+	</h1>
 
-  <p
-    class="mb-7 max-w-[820px] text-[clamp(20px,2.6vw,30px)] leading-[1.35] text-soft"
-  >
-    Freelance WordPress developer and full‑stack engineer — building fast,
-    custom sites and full‑stack apps for founders and small teams who want their
-    site to actually feel
-    <span class="font-serif text-ink italic">good</span>.
-  </p>
+	<p class="mt-4 max-w-[640px] text-[clamp(18px,2.1vw,21px)] leading-[1.4] text-ink">
+		Freelance web developer and full-stack engineer.
+	</p>
 
-  <p class="mb-10 max-w-[620px] text-[17px] leading-[1.6] text-dim">
-    WordPress, Shopify &amp; Squarespace builds, Svelte/Node full‑stack
-    products, and AI‑assisted workflows with Claude — plus the design and SEO to
-    back it up.
-  </p>
+	<p class="mt-5 max-w-[620px] text-[16.5px] leading-[1.7] text-muted">
+		I build fast, custom sites and full-stack apps for founders and small teams — WordPress,
+		Shopify and Squarespace builds, Svelte and Node products, and AI-assisted workflows with
+		Claude, plus the design and SEO to back them up.
+	</p>
 
-  <div class="flex flex-wrap gap-4">
-    <Button href="/contact" label="Get in touch →" />
-    <Button href="/projects" label="View my work" variant="secondary" />
-  </div>
+	<div class="mt-9 flex flex-wrap items-center gap-3">
+		<Button href="/contact" label="Get in touch" size="lg" arrow />
+		<Button href="/projects" label="View my work" variant="secondary" size="lg" />
+	</div>
 
-  <p class="mt-5 text-sm text-faint">{replyTime}</p>
+	<p class="mt-5 text-[13px] text-faint">{replyTime}</p>
 </Section>

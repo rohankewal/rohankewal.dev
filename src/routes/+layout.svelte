@@ -1,7 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import MouseGlow from '$lib/components/MouseGlow.svelte';
-	import BackgroundDecor from '$lib/components/BackgroundDecor.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { personSchema } from '$lib/seo';
@@ -17,17 +15,20 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(personSchema)}<\/script>`}
 </svelte:head>
 
-<MouseGlow />
+<!-- Keyboard and screen-reader users land here first, so the nav is skippable. -->
+<a
+	href="#main"
+	class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-60 focus:rounded-field focus:bg-ink focus:px-4 focus:py-2 focus:text-[14px] focus:font-medium focus:text-bg"
+>
+	Skip to content
+</a>
 
 <!-- Column layout so `main` absorbs the leftover height and the footer stays on
-     the bottom edge on short pages. BackgroundDecor and Nav are both fixed, so
-     they sit outside the flow and are unaffected. -->
-<div class="relative flex min-h-screen flex-col overflow-x-hidden bg-bg font-sans">
-	<BackgroundDecor />
-
+     the bottom edge of short pages. Nav is fixed, hence the top padding. -->
+<div class="flex min-h-screen flex-col overflow-x-hidden">
 	<Nav />
 
-	<main class="relative z-1 flex-1 pt-24">
+	<main id="main" class="flex-1 pt-15">
 		{@render children()}
 	</main>
 

@@ -24,8 +24,8 @@
 	let error = $state('');
 
 	const field =
-		'w-full rounded-xl border border-white/10 bg-card px-4 py-3 text-[15px] text-ink placeholder:text-faint focus:border-accent/60 focus:outline-none';
-	const labelText = 'mb-2 block text-[13px] tracking-[0.06em] text-faint uppercase';
+		'w-full rounded-field border border-line bg-surface px-3.5 py-2.5 text-[14.5px] text-ink transition-colors duration-150 placeholder:text-faint hover:border-line-strong';
+	const labelText = 'label mb-2 block';
 
 	// A production sitekey is tied to rohankewal.dev, so it refuses to run on
 	// localhost. Cloudflare's always-passes test key works on any host, so local
@@ -62,7 +62,11 @@
 				return;
 			}
 
-			widgetId = api.render(widget!, { sitekey, theme: 'dark' });
+			// Match the widget to the scheme the page is actually in, rather than to
+			// the OS preference Turnstile's own 'auto' would read.
+			const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+
+			widgetId = api.render(widget!, { sitekey, theme });
 		}
 
 		render();
@@ -129,12 +133,35 @@
 </svelte:head>
 
 {#if status === 'sent'}
-	<div class="rounded-[20px] border border-green/30 bg-green/8 p-8">
-		<p class="font-serif text-[26px] text-ink">Thanks, that landed in my inbox.</p>
-		<p class="mt-3 text-[16px] leading-[1.6] text-soft">{replyTime}</p>
+	<div class="card p-8">
+		<div class="flex items-center gap-2.5">
+			<span
+				aria-hidden="true"
+				class="flex size-6 items-center justify-center rounded-full bg-success/12 text-success"
+			>
+				<svg
+					class="size-[13px]"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.4"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M5 12.5l4.5 4.5L19 7" />
+				</svg>
+			</span>
+			<p class="text-[17px] font-medium tracking-heading text-ink">
+				Thanks, that landed in my inbox.
+			</p>
+		</div>
+
+		<p class="mt-3 text-[14.5px] leading-[1.65] text-muted">{replyTime}</p>
+
 		<button
 			type="button"
-			class="mt-5 border-b border-white/20 text-[15px] text-muted"
+			class="link-underline mt-5 text-[14px] font-medium text-ink"
 			onclick={() => (status = 'idle')}
 		>
 			Send another
@@ -179,7 +206,7 @@
 				<label for="budget" class={labelText}>Budget range</label>
 				<select id="budget" name="budget" class={field}>
 					{#each budgets as budget (budget)}
-						<option class="bg-card" value={budget}>{budget}</option>
+						<option value={budget}>{budget}</option>
 					{/each}
 				</select>
 			</div>
@@ -188,7 +215,7 @@
 				<label for="timeline" class={labelText}>Timeline</label>
 				<select id="timeline" name="timeline" class={field}>
 					{#each timelines as timeline (timeline)}
-						<option class="bg-card" value={timeline}>{timeline}</option>
+						<option value={timeline}>{timeline}</option>
 					{/each}
 				</select>
 			</div>
@@ -207,17 +234,22 @@
 		{/if}
 
 		{#if status === 'error'}
-			<p role="alert" class="text-[15px] leading-[1.6] text-accent">{error}</p>
+			<p
+				role="alert"
+				class="rounded-field border border-line bg-bg-subtle px-3.5 py-3 text-[14px] leading-[1.6] text-ink"
+			>
+				{error}
+			</p>
 		{/if}
 
-		<div class="mt-1 flex flex-wrap items-center gap-5">
+		<div class="mt-1 flex flex-wrap items-center gap-x-5 gap-y-3">
 			<Button
 				type="submit"
-				label={status === 'sending' ? 'Sending…' : 'Send it →'}
+				label={status === 'sending' ? 'Sending…' : 'Send it'}
+				arrow={status !== 'sending'}
 				disabled={status === 'sending'}
-				size="md"
 			/>
-			<span class="text-sm text-faint">{replyTime}</span>
+			<span class="text-[13px] text-faint">{replyTime}</span>
 		</div>
 	</form>
 {/if}

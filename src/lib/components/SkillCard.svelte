@@ -1,22 +1,27 @@
 <script lang="ts">
 	import type { SkillGroup } from '$lib/data';
+	import Icon from '$lib/components/Icon.svelte';
 
 	let { group }: { group: SkillGroup } = $props();
 </script>
 
-<div
-	class="rounded-[20px] border border-white/10 bg-card p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 hover:border-accent/55"
->
+<div class="card card-interactive flex h-full flex-col p-7">
 	<div
-		class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/18 font-serif text-[22px] text-accent italic"
+		class="flex size-9 items-center justify-center rounded-field border border-line bg-bg-subtle text-ink"
 	>
-		{group.mark}
+		<Icon path={group.icon} />
 	</div>
-	<h3 class="mb-2.5 font-serif text-2xl font-normal text-ink">{group.title}</h3>
-	<p class="mb-4.5 text-[15px] leading-[1.6] text-muted">{group.desc}</p>
-	<div class="flex flex-wrap gap-2">
+
+	<h3 class="mt-5 text-[16.5px] font-medium tracking-heading text-ink">{group.title}</h3>
+	<p class="mt-2.5 text-[14.5px] leading-[1.65] text-muted">{group.desc}</p>
+
+	<!-- `mt-auto` so the tag rows line up across a row of cards whose copy runs to
+	     different lengths. -->
+	<div class="mt-auto flex flex-wrap gap-1.5 pt-6">
 		{#each group.tags as tag (tag)}
-			<span class="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 text-[13px] text-soft">
+			<span
+				class="rounded-full border border-line bg-bg-subtle px-2.5 py-1 text-[12.5px] text-muted"
+			>
 				{tag}
 			</span>
 		{/each}

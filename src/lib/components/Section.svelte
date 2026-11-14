@@ -1,30 +1,26 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	// The standard page container: centred, max 1180px, fluid side padding.
-	// `width="wide"` opts into a roomier container for multi-column grids that
-	// need more room per card. Pass vertical spacing through `class`.
+	// The page container: centred, fluid side padding, one measure. The nav and
+	// footer share that measure, so a heading always lines up with the logo
+	// above it.
+	//
+	// Vertical spacing is passed in through `class`, because it belongs to the
+	// page's rhythm rather than to the container.
 	let {
 		element = 'section',
-		width = 'default',
 		class: className = '',
 		children
 	}: {
 		element?: 'section' | 'div';
-		width?: 'default' | 'wide';
 		class?: string;
 		children: Snippet;
 	} = $props();
-
-	const maxWidths = {
-		default: 'max-w-[1180px]',
-		wide: 'max-w-[1440px]'
-	};
 </script>
 
 <svelte:element
 	this={element}
-	class="mx-auto {maxWidths[width]} px-[clamp(20px,5vw,64px)] {className}"
+	class="mx-auto max-w-[1120px] px-[clamp(20px,5vw,56px)] {className}"
 >
 	{@render children()}
 </svelte:element>

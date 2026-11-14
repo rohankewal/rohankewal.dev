@@ -1,68 +1,56 @@
 <script lang="ts">
 	import type { Project } from '$lib/data';
-	import Button from '$lib/components/Button.svelte';
+	import ArrowLink from '$lib/components/ArrowLink.svelte';
 	import ProductHuntBadge from '$lib/components/ProductHuntBadge.svelte';
 
 	// Case study card used in the projects-page grid. Sized to work three-up on
 	// large screens, so it stays flexible rather than assuming full width.
 	let { project }: { project: Project } = $props();
+
+	// Rendered as a definition list: these are three facts about one thing, and
+	// the mono keys give the card a technical register the prose above does not.
+	let facts = $derived([
+		{ key: 'Role', value: project.role },
+		{ key: 'Stack', value: project.stack },
+		{ key: 'Industry', value: project.industry }
+	]);
 </script>
 
-<div class="flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-card">
-	<div
-		class="relative flex h-[clamp(190px,16vw,230px)] items-center justify-center overflow-hidden {project.image
-			? ''
-			: 'stripe-bg-lg'}"
-	>
+<article class="card card-interactive flex h-full flex-col overflow-hidden">
+	<div class="aspect-[16/10] overflow-hidden border-b border-line bg-bg-subtle">
 		{#if project.image}
 			<img
 				src={project.image}
 				alt={`${project.name} website screenshot`}
-				class="h-full w-full object-cover object-top"
+				loading="lazy"
+				class="size-full object-cover object-top"
 			/>
 		{:else}
-			<span
-				class="rounded-full border border-white/10 bg-bg px-4 py-2 font-mono text-sm tracking-wide text-faint"
-			>
-				{project.placeholderLg}
-			</span>
+			<div class="flex size-full items-center justify-center">
+				<span class="label">{project.placeholderLg}</span>
+			</div>
 		{/if}
 	</div>
 
-	<div class="flex flex-1 flex-col gap-5 p-[clamp(22px,2vw,30px)]">
-		<div>
-			<h2 class="mb-2 font-serif text-[clamp(24px,1.9vw,28px)] font-normal text-ink">
-				{project.name}
-			</h2>
-			<span class="text-[14px] text-muted">{project.location}</span>
-		</div>
+	<div class="flex flex-1 flex-col p-6">
+		<span class="label">{project.tag}</span>
+		<h2 class="mt-3 text-[19px] font-medium tracking-heading text-ink">{project.name}</h2>
+		<p class="mt-2.5 text-[14.5px] leading-[1.65] text-muted">{project.summary}</p>
 
-		<p class="text-[15px] leading-[1.65] text-soft">
-			{project.summary}
-		</p>
+		<dl class="mt-6 flex flex-col gap-3 border-t border-line pt-5">
+			{#each facts as fact (fact.key)}
+				<div class="grid grid-cols-[84px_1fr] items-baseline gap-3">
+					<dt class="label">{fact.key}</dt>
+					<dd class="text-[13.5px] leading-[1.5] text-body">{fact.value}</dd>
+				</div>
+			{/each}
+		</dl>
 
-		<div class="mt-auto flex flex-col gap-4 border-t border-white/8 pt-4">
-			<div class="grid gap-3.5">
-				<div>
-					<div class="mb-1 text-xs tracking-[0.08em] text-faint uppercase">Role</div>
-					<div class="text-[14px] text-ink">{project.role}</div>
-				</div>
-				<div>
-					<div class="mb-1 text-xs tracking-[0.08em] text-faint uppercase">Stack</div>
-					<div class="text-[14px] text-ink">{project.stack}</div>
-				</div>
-				<div>
-					<div class="mb-1 text-xs tracking-[0.08em] text-faint uppercase">Industry</div>
-					<div class="text-[14px] text-ink">{project.industry}</div>
-				</div>
-			</div>
-
-			<div class="flex flex-wrap items-center gap-3">
-				<Button href={project.url} label="Visit site ↗" size="sm" external />
-				{#if project.productHunt}
-					<ProductHuntBadge badge={project.productHunt} />
-				{/if}
-			</div>
+		<div class="mt-auto flex flex-wrap items-center gap-4 pt-6">
+			<ArrowLink href={project.url} label="Visit site" external />
+			{#if project.productHunt}
+				<ProductHuntBadge badge={project.productHunt} />
+			{/if}
 		</div>
 	</div>
-</div>
+</article>

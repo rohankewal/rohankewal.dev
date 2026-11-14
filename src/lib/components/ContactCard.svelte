@@ -6,8 +6,17 @@
 	{href}
 	target="_blank"
 	rel="noreferrer"
-	class="flex flex-col gap-2 rounded-2xl border border-white/10 p-[22px] text-ink! transition-[transform,border-color] duration-250 hover:-translate-y-1 hover:border-accent/55"
+	class="card card-interactive group flex items-center justify-between gap-4 px-5 py-4"
 >
-	<span class="text-[13px] tracking-[0.06em] text-faint uppercase">{label}</span>
-	<span class="text-[17px] font-medium">{value} ↗</span>
+	<span class="min-w-0">
+		<span class="label block">{label}</span>
+		<span class="mt-1.5 block truncate text-[14.5px] font-medium text-ink">{value}</span>
+	</span>
+
+	<span
+		aria-hidden="true"
+		class="shrink-0 text-[14px] text-faint transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-ink"
+	>
+		↗
+	</span>
 </a>

@@ -1,50 +1,48 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	// In-page <h2> heading with the trailing words accented. `action` renders alongside
-	// the heading (e.g. a "See all work →" link); spacing comes from `class`.
+	// In-page <h2> heading. `action` renders opposite the heading on wide screens
+	// (e.g. a "See all work" link) and drops below it on narrow ones.
 	let {
 		eyebrow,
 		title,
-		accent,
 		lead,
-		size = 'lg',
+		size = 'md',
 		class: className = '',
 		action
 	}: {
 		eyebrow?: string;
 		title: string;
-		accent: string;
 		lead?: string;
-		size?: 'sm' | 'md' | 'lg';
+		size?: 'sm' | 'md';
 		class?: string;
 		action?: Snippet;
 	} = $props();
 
 	const titleSizes = {
-		sm: 'text-[clamp(26px,3.5vw,36px)]',
-		md: 'text-[clamp(28px,4vw,40px)]',
-		lg: 'text-[clamp(30px,4vw,46px)]'
+		sm: 'text-[clamp(21px,2.4vw,25px)]',
+		md: 'text-[clamp(25px,3.2vw,33px)]'
 	};
 </script>
 
-<div class={className}>
-	{#if eyebrow}
-		<span class="text-sm tracking-[0.08em] text-accent uppercase">{eyebrow}</span>
-	{/if}
+<div class="flex flex-wrap items-end justify-between gap-x-8 gap-y-4 {className}">
+	<div class="max-w-[640px]">
+		{#if eyebrow}
+			<span class="label">{eyebrow}</span>
+		{/if}
 
-	<h2
-		class="font-serif font-normal text-ink {titleSizes[size]} {eyebrow ? 'mt-2' : ''} {lead
-			? 'mb-4'
-			: ''}"
-	>
-		{title}
-		<span class="text-accent italic">{accent}</span>
-	</h2>
+		<h2
+			class="font-medium tracking-display text-ink {titleSizes[size]} leading-[1.15] {eyebrow
+				? 'mt-3'
+				: ''}"
+		>
+			{title}
+		</h2>
 
-	{#if lead}
-		<p class="text-[17px] leading-[1.6] text-muted">{lead}</p>
-	{/if}
+		{#if lead}
+			<p class="mt-4 text-[16px] leading-[1.65] text-muted">{lead}</p>
+		{/if}
+	</div>
 
 	{@render action?.()}
 </div>

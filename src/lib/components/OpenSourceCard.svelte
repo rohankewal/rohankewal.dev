@@ -8,24 +8,38 @@
 	href={project.url}
 	target="_blank"
 	rel="noreferrer"
-	class="group flex flex-col overflow-hidden rounded-[18px] border border-white/10 bg-card transition-colors hover:border-white/25"
+	class="card card-interactive group flex h-full flex-col overflow-hidden"
 >
-	<div class="flex items-center border-b border-white/8 bg-bg px-4 py-5">
+	<div class="border-b border-line bg-bg-subtle p-5">
 		<img
 			src={project.image}
 			alt={project.imageAlt}
-			class="w-full rounded-md"
+			loading="lazy"
+			class="w-full rounded-[6px] border border-line"
 		/>
 	</div>
-	<div class="flex flex-1 flex-col gap-3 p-6">
-		<div class="flex flex-wrap items-center justify-between gap-3">
-			<h3 class="font-mono text-[15px] break-all text-ink">{project.name}</h3>
-			<div class="flex shrink-0 items-center gap-1.5 text-[13px] text-faint">
-				<span class="size-2 rounded-full bg-accent"></span>
+
+	<div class="flex flex-1 flex-col p-6">
+		<div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+			<h3 class="font-mono text-[14px] break-all text-ink">{project.name}</h3>
+			<span class="flex shrink-0 items-center gap-1.5 text-[12.5px] text-faint">
+				<span aria-hidden="true" class="size-[7px] rounded-full bg-line-strong"></span>
 				{project.language}
-			</div>
+			</span>
 		</div>
-		<p class="flex-1 text-[15px] leading-[1.65] text-soft">{project.summary}</p>
-		<span class="text-[15px] text-accent">View on GitHub ↗</span>
+
+		<p class="mt-3 flex-1 text-[14.5px] leading-[1.65] text-muted">{project.summary}</p>
+
+		<span
+			class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink transition-colors duration-150 group-hover:text-accent"
+		>
+			View on GitHub
+			<span
+				aria-hidden="true"
+				class="transition-transform duration-200 group-hover:translate-x-0.5"
+			>
+				↗
+			</span>
+		</span>
 	</div>
 </a>

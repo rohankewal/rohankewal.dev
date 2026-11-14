@@ -1,17 +1,17 @@
 <script lang="ts">
 	import type { Service } from '$lib/data';
+	import Icon from '$lib/components/Icon.svelte';
 
 	let { service }: { service: Service } = $props();
 </script>
 
-<div
-	class="rounded-[20px] border border-white/10 bg-card p-8 transition-[transform,border-color] duration-250 hover:-translate-y-1 hover:border-accent/55"
->
+<div class="card card-interactive p-7">
 	<div
-		class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/18 font-serif text-[22px] text-accent italic"
+		class="flex size-9 items-center justify-center rounded-field border border-line bg-bg-subtle text-ink"
 	>
-		{service.mark}
+		<Icon path={service.icon} />
 	</div>
-	<h3 class="mb-2.5 font-serif text-2xl font-normal text-ink">{service.title}</h3>
-	<p class="text-[15px] leading-[1.6] text-muted">{service.desc}</p>
+
+	<h3 class="mt-5 text-[16.5px] font-medium tracking-heading text-ink">{service.title}</h3>
+	<p class="mt-2.5 text-[14.5px] leading-[1.65] text-muted">{service.desc}</p>
 </div>
